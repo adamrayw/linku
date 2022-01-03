@@ -1,3 +1,4 @@
+import React from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +12,9 @@ import Modal from "../components/Modal";
 library.add(faFacebook, faTwitter);
 
 export default function Home() {
+  React.useEffect(() => {
+    document.title = "Linku - Make your business more professional ";
+  });
   return (
     <main>
       <section className="text-center max-w-xl mx-auto md:py-10 p-10 border-b">
