@@ -7,7 +7,7 @@ import {
   faYoutube,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-import Modal from "../components/Modal";
+import { Link } from "react-router-dom";
 
 library.add(faFacebook, faTwitter);
 
@@ -22,7 +22,13 @@ export default function Home() {
         <p className="md:text-2xl text-lg text-gray-500 mt-4">
           Link bisnis kamu dalam satu halaman
         </p>
-        <Modal />
+        <Link
+          to="/create"
+          className="mt-6 inline-block font-semibold bg-blue-500 px-4 py-2 rounded-lg text-white hover:bg-blue-700 transition-all"
+          type="button"
+        >
+          Buat sekarang
+        </Link>
       </section>
       <section className="grid md:grid-cols-3 grid-cols-1 gap-6 md:py-10 p-10">
         <div className="text-center shadow-md px-4 py-10 inline-block rounded-lg bg-white">
