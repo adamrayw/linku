@@ -1,4 +1,5 @@
 import React from "react";
+import { SketchPicker } from "react-color";
 
 export default function Create() {
   const [backColor, setBackColor] = React.useState("rgb(243 244 246)");
@@ -11,11 +12,16 @@ export default function Create() {
   const [deskripsiStyleBold, setDeskripsiStyleBold] = React.useState("");
   const [deskripsiStyleItalic, setDeskripsiStyleItalic] = React.useState("");
   const [deskripsiColor, setDeskripsiColor] = React.useState("");
-  const [activeTab, setActiveTab] = React.useState("tab2");
+  const [activeTab, setActiveTab] = React.useState("tab1");
+  const [deskripsiColorPicker, setDeskripsiColorPicker] = React.useState(false);
 
-  React.useEffect(() => {
-    document.title = "Create";
-  });
+  function handleDeskripsiColorPicker() {
+    setDeskripsiColorPicker(!deskripsiColorPicker);
+  }
+
+  function handleDeskripsiColorPickerClose() {
+    setDeskripsiColorPicker(false);
+  }
 
   function selectImage(e) {
     if (e.target.files && e.target.files.length > 0) {
@@ -69,15 +75,19 @@ export default function Create() {
   function handleTab2() {
     setActiveTab("tab2");
   }
+
+  function handleTab3() {
+    setActiveTab("tab3");
+  }
   return (
     <section className="py-10">
-      <h1 className="text-2xl font-medium text-gray-500 md:px-0 px-4">
+      <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 md:px-0 px-4">
         Desain Halaman
       </h1>
       <div className="mt-6">
-        <ul className="flex space-x-2">
+        <ul className="flex space-x-6 md:justify-start justify-center">
           <li
-            className={`transition-all cursor-pointer  pb-2 ${
+            className={`transition-all cursor-pointer text-gray-500 pb-2 ${
               activeTab === "tab1"
                 ? "text-blue-500 border-b border-blue-500"
                 : ""
@@ -87,14 +97,24 @@ export default function Create() {
             Design
           </li>
           <li
-            className={`transition-all cursor-pointer  pb-2 ${
+            className={`transition-all cursor-pointer text-gray-500 pb-2 ${
               activeTab === "tab2"
                 ? "text-blue-500 border-b border-blue-500"
                 : ""
             }`}
             onClick={handleTab2}
           >
-            Tema
+            Links
+          </li>
+          <li
+            className={`transition-all cursor-pointer text-gray-500 pb-2 ${
+              activeTab === "tab3"
+                ? "text-blue-500 border-b border-blue-500"
+                : ""
+            }`}
+            onClick={handleTab3}
+          >
+            Themes
           </li>
         </ul>
       </div>
@@ -181,14 +201,41 @@ export default function Create() {
                 ></textarea>
 
                 <div className="flex items-center mt-2 space-x-2">
-                  <input
+                  {/* <input
                     type="color"
                     className="w-8"
                     name="namaBisnisColor"
                     onChange={(event) => {
                       setDeskripsiColor(event.target.value);
                     }}
-                  />
+                  /> */}
+
+                  <div>
+                    <div
+                      onClick={handleDeskripsiColorPicker}
+                      className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                      style={{ backgroundColor: deskripsiColor }}
+                    ></div>
+                    <div className="absolute z-30 transition-all">
+                      {deskripsiColorPicker ? (
+                        <div>
+                          <div
+                            className="top-0 right-0 bottom-0 left-0 fixed"
+                            onClick={handleDeskripsiColorPickerClose}
+                          ></div>
+                          <SketchPicker
+                            color={deskripsiColor}
+                            onChange={(event) => {
+                              setDeskripsiColor(event.hex);
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+
                   <button
                     className={`w-10 px-1 border rounded-sm font-bold ${
                       deskripsiStyleBold === "bold" ? "bg-gray-300" : "bg-white"
@@ -211,9 +258,23 @@ export default function Create() {
               </div>
             </form>
           ) : (
+            ""
+          )}
+
+          {activeTab === "tab3" ? (
             <div>
               <p>Coming soon...</p>
             </div>
+          ) : (
+            ""
+          )}
+
+          {activeTab === "tab2" ? (
+            <div>
+              <p>Links</p>
+            </div>
+          ) : (
+            ""
           )}
         </div>
         <div>
