@@ -18,6 +18,13 @@ export default function Create() {
   const [deskripsiFontSize, setDeskripsiFontSize] = React.useState("");
   const [namaBisnisFontSize, setNamaBisnisFontSize] = React.useState("");
 
+  const data = {
+    namaBisnis,
+    deskripsi,
+  };
+
+  console.log(data);
+
   function handleNamaBisnisColorPicker() {
     setNamaBisnisColorPicker(!namaBisnisColorPicker);
   }
@@ -280,6 +287,11 @@ export default function Create() {
                   </select>
                 </div>
               </div>
+              <div>
+                <button className="px-4 py-2  mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all">
+                  Create
+                </button>
+              </div>
             </form>
           ) : (
             ""
@@ -303,7 +315,8 @@ export default function Create() {
         </div>
         <div>
           <div
-            className="shadow px-4 h-96 w-80 flex flex-col
+            style={{ width: "390px", height: "684px" }}
+            className="shadow px-4 flex flex-col
            justify-center items-center bg-gray-200"
           >
             {!selectedImage && (
