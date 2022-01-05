@@ -33,7 +33,7 @@ export default function Navbar() {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-blue-500 hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
                   to="/"
                 >
                   <span className="ml-2">Home</span>
@@ -41,7 +41,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-blue-500 hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
                   href="#pablo"
                 >
                   <span className="ml-2">Feature</span>
@@ -49,7 +49,7 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-blue-500 hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
                   to="/login"
                 >
                   <span className="ml-2">Login</span>
