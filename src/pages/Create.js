@@ -288,7 +288,7 @@ export default function Create() {
                 </div>
               </div>
               <div>
-                <button className="px-4 py-2  mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all">
+                <button className="px-4 py-2 tracking-wider mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all">
                   Create
                 </button>
               </div>
@@ -315,8 +315,8 @@ export default function Create() {
         </div>
         <div>
           <div
-            style={{ width: "390px", height: "684px" }}
-            className="shadow px-4 flex flex-col
+            style={{ height: "684px" }}
+            className="shadow px-4 md:w-96 w-full flex flex-col
            justify-center items-center bg-gray-200"
           >
             {!selectedImage && (
