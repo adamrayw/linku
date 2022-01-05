@@ -15,6 +15,8 @@ export default function Create() {
   const [deskripsiColorPicker, setDeskripsiColorPicker] = React.useState(false);
   const [namaBisnisColorPicker, setNamaBisnisColorPicker] =
     React.useState(false);
+  const [deskripsiFontSize, setDeskripsiFontSize] = React.useState("");
+  const [namaBisnisFontSize, setNamaBisnisFontSize] = React.useState("");
 
   function handleNamaBisnisColorPicker() {
     setNamaBisnisColorPicker(!namaBisnisColorPicker);
@@ -87,6 +89,7 @@ export default function Create() {
   function handleTab3() {
     setActiveTab("tab3");
   }
+
   return (
     <section className="py-10">
       <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 md:px-0 px-4">
@@ -197,6 +200,16 @@ export default function Create() {
                   >
                     I
                   </button>
+                  <select
+                    onChange={(e) => {
+                      setNamaBisnisFontSize(e.target.value);
+                    }}
+                  >
+                    <option>Font Size</option>
+                    <option value="text-xs">Extra Small</option>
+                    <option value="text-sm">Small</option>
+                    <option value="text-lg">Large</option>
+                  </select>
                 </div>
               </div>
               <div>
@@ -255,6 +268,16 @@ export default function Create() {
                   >
                     I
                   </button>
+                  <select
+                    onChange={(e) => {
+                      setDeskripsiFontSize(e.target.value);
+                    }}
+                  >
+                    <option>Font Size</option>
+                    <option value="text-xs">Extra Small</option>
+                    <option value="text-sm">Small</option>
+                    <option value="text-lg">Large</option>
+                  </select>
                 </div>
               </div>
             </form>
@@ -303,7 +326,7 @@ export default function Create() {
               }}
               className="mt-4"
             >
-              <h1>{namaBisnis}</h1>
+              <h1 className={`${namaBisnisFontSize}`}>{namaBisnis}</h1>
             </div>
             <div className="mt-2">
               <p
@@ -312,7 +335,7 @@ export default function Create() {
                   color: deskripsiColor,
                   fontStyle: deskripsiStyleItalic,
                 }}
-                className="text-center text-sm"
+                className={`text-center ${deskripsiFontSize}`}
               >
                 {deskripsi}
               </p>
