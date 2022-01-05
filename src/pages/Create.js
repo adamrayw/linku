@@ -2,7 +2,6 @@ import React from "react";
 import { SketchPicker } from "react-color";
 
 export default function Create() {
-  const [backColor, setBackColor] = React.useState("rgb(243 244 246)");
   const [namaBisnis, setNamaBisnis] = React.useState("Nama atau bisnis anda");
   const [namaBisnisStyleBold, setNamaBisnisStyleBold] = React.useState("");
   const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = React.useState("");
@@ -14,6 +13,15 @@ export default function Create() {
   const [deskripsiColor, setDeskripsiColor] = React.useState("");
   const [activeTab, setActiveTab] = React.useState("tab1");
   const [deskripsiColorPicker, setDeskripsiColorPicker] = React.useState(false);
+  const [namaBisnisColorPicker, setNamaBisnisColorPicker] =
+    React.useState(false);
+
+  function handleNamaBisnisColorPicker() {
+    setNamaBisnisColorPicker(!namaBisnisColorPicker);
+  }
+  function handleNamaBisnisColorPickerClose() {
+    setNamaBisnisColorPicker(false);
+  }
 
   function handleDeskripsiColorPicker() {
     setDeskripsiColorPicker(!deskripsiColorPicker);
@@ -123,19 +131,6 @@ export default function Create() {
           {activeTab === "tab1" ? (
             <form>
               <div>
-                <label className="block text-sm mb-1 text-gray-400">
-                  Pilih warna background
-                </label>
-                <input
-                  type="color"
-                  name="color"
-                  onChange={(event) => {
-                    setBackColor(event.target.value);
-                  }}
-                />
-              </div>
-
-              <div>
                 <label className="block text-sm mb-1 mt-4  text-gray-400">
                   Gambar
                 </label>
@@ -159,14 +154,29 @@ export default function Create() {
                   }}
                 />
                 <div className="flex items-center mt-2 space-x-2">
-                  <input
-                    type="color"
-                    className="w-8"
-                    name="namaBisnisColor"
-                    onChange={(event) => {
-                      setnamaBisnisColor(event.target.value);
-                    }}
-                  />
+                  <div
+                    onClick={handleNamaBisnisColorPicker}
+                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                    style={{ backgroundColor: namaBisnisColor }}
+                  ></div>
+                  <div className="absolute z-30 transition-all">
+                    {namaBisnisColorPicker ? (
+                      <div>
+                        <div
+                          className="top-0 right-0 bottom-0 left-0 fixed"
+                          onClick={handleNamaBisnisColorPickerClose}
+                        ></div>
+                        <SketchPicker
+                          color={namaBisnisColor}
+                          onChange={(event) => {
+                            setnamaBisnisColor(event.hex);
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                   <button
                     className={`w-10 px-1 border rounded-sm font-bold ${
                       namaBisnisStyleBold === "bold"
@@ -201,15 +211,6 @@ export default function Create() {
                 ></textarea>
 
                 <div className="flex items-center mt-2 space-x-2">
-                  {/* <input
-                    type="color"
-                    className="w-8"
-                    name="namaBisnisColor"
-                    onChange={(event) => {
-                      setDeskripsiColor(event.target.value);
-                    }}
-                  /> */}
-
                   <div>
                     <div
                       onClick={handleDeskripsiColorPicker}
@@ -279,9 +280,8 @@ export default function Create() {
         </div>
         <div>
           <div
-            style={{ backgroundColor: backColor }}
             className="shadow px-4 h-96 w-80 flex flex-col
-           justify-center items-center "
+           justify-center items-center bg-gray-200"
           >
             {!selectedImage && (
               <div className="w-20 h-20 rounded-full bg-gray-600"></div>
@@ -312,7 +312,7 @@ export default function Create() {
                   color: deskripsiColor,
                   fontStyle: deskripsiStyleItalic,
                 }}
-                className="text-center"
+                className="text-center text-sm"
               >
                 {deskripsi}
               </p>
