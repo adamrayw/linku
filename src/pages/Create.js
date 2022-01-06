@@ -125,9 +125,6 @@ export default function Create() {
     if (!response.ok) {
       console.log("Something error");
       setPostRequest(true);
-      setInterval(() => {
-        setPostRequest(false);
-      }, 3000);
       setLoading(false);
     } else {
       setLoading(false);
@@ -336,7 +333,28 @@ export default function Create() {
 
                 {postRequest ? (
                   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="p-10 rounded shadow-sm bg-red-500 z-50 ">
+                    <div className="px-6 py-4 rounded shadow-sm bg-red-500 z-50 ">
+                      <button
+                        onClick={() => {
+                          setPostRequest(false);
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="absolute right-0 text-white top-0 m-2 h-4 w-4 ml-auto"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </button>
+
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-16 w-16 mx-auto text-white"
