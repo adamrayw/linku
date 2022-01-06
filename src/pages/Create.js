@@ -22,13 +22,6 @@ export default function Create() {
   const [postRequest, setPostRequest] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
-  const data = {
-    namaBisnis,
-    deskripsi,
-  };
-
-  console.log(data);
-
   function handleNamaBisnisColorPicker() {
     setNamaBisnisColorPicker(!namaBisnisColorPicker);
   }
@@ -134,7 +127,7 @@ export default function Create() {
       setPostRequest(true);
       setInterval(() => {
         setPostRequest(false);
-      }, 2000);
+      }, 3000);
       setLoading(false);
     } else {
       setLoading(false);
@@ -342,9 +335,28 @@ export default function Create() {
                 </button>
 
                 {postRequest ? (
-                  <p className="text-red-500 mt-2">
-                    Error... silahkan coba lagi!
-                  </p>
+                  <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="p-10 rounded shadow-sm bg-red-500 z-50 ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-16 w-16 mx-auto text-white"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zm7-1a1 1 0 11-2 0 1 1 0 012 0zm-7.536 5.879a1 1 0 001.415 0 3 3 0 014.242 0 1 1 0 001.415-1.415 5 5 0 00-7.072 0 1 1 0 000 1.415z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                      <p className="font-bold text-xl text-white text-center">
+                        Error
+                      </p>
+                      <p className="font-light mt-1 text-sm text-white text-center">
+                        Silahkan coba lagi.
+                      </p>
+                    </div>
+                  </div>
                 ) : (
                   ""
                 )}
