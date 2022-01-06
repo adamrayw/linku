@@ -2,11 +2,13 @@ import React from "react";
 import { SketchPicker } from "react-color";
 
 export default function Create() {
-  const [namaBisnis, setNamaBisnis] = React.useState("Nama atau bisnis anda");
+  const [namaBisnis, setNamaBisnis] = React.useState(
+    "PT. MENCARI CINTA SEJATI"
+  );
   const [namaBisnisStyleBold, setNamaBisnisStyleBold] = React.useState("");
   const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = React.useState("");
   const [namaBisnisColor, setnamaBisnisColor] = React.useState("");
-  const [deskripsi, setDeskripsi] = React.useState("Deskripsi");
+  const [deskripsi, setDeskripsi] = React.useState("Grow with us!");
   const [selectedImage, setSelectedImage] = React.useState("");
   const [deskripsiStyleBold, setDeskripsiStyleBold] = React.useState("");
   const [deskripsiStyleItalic, setDeskripsiStyleItalic] = React.useState("");
@@ -17,6 +19,8 @@ export default function Create() {
     React.useState(false);
   const [deskripsiFontSize, setDeskripsiFontSize] = React.useState("");
   const [namaBisnisFontSize, setNamaBisnisFontSize] = React.useState("");
+  const [postRequest, setPostRequest] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const data = {
     namaBisnis,
@@ -97,6 +101,46 @@ export default function Create() {
     setActiveTab("tab3");
   }
 
+  async function handlePostDesign(e) {
+    e.preventDefault();
+    setPostRequest(false);
+    setLoading(true);
+    // POST Request using fetch with async/await
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        link: namaBisnis,
+        image: "test",
+        nama: namaBisnis,
+        nama_color: namaBisnisColor,
+        nama_font_weight: namaBisnisStyleBold,
+        nama_font_style: namaBisnisStyleItalic,
+        nama_font_size: namaBisnisFontSize,
+        deskripsi: deskripsi,
+        deskripsi_color: deskripsiColor,
+        deskripsi_font_weight: deskripsiStyleBold,
+        deskripsi_font_style: deskripsiStyleItalic,
+        deskripsi_font_size: deskripsiFontSize,
+      }),
+    };
+    const response = await fetch(
+      "http://127.0.0.1:8000/api/design",
+      requestOptions
+    );
+
+    if (!response.ok) {
+      console.log("Something error");
+      setPostRequest(true);
+      setInterval(() => {
+        setPostRequest(false);
+      }, 2000);
+      setLoading(false);
+    } else {
+      setLoading(false);
+    }
+  }
+
   return (
     <section className="py-10">
       <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 md:px-0 px-4">
@@ -162,6 +206,7 @@ export default function Create() {
                   onChange={(event) => {
                     setNamaBisnis(event.target.value);
                   }}
+                  value={namaBisnis}
                 />
                 <div className="flex items-center mt-2 space-x-2">
                   <div
@@ -211,6 +256,7 @@ export default function Create() {
                     onChange={(e) => {
                       setNamaBisnisFontSize(e.target.value);
                     }}
+                    className="border rounded-sm text-xs bg-white p-1"
                   >
                     <option>Font Size</option>
                     <option value="text-xs">Extra Small</option>
@@ -228,33 +274,32 @@ export default function Create() {
                   onChange={(event) => {
                     setDeskripsi(event.target.value);
                   }}
+                  value={deskripsi}
                 ></textarea>
 
                 <div className="flex items-center mt-2 space-x-2">
-                  <div>
-                    <div
-                      onClick={handleDeskripsiColorPicker}
-                      className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
-                      style={{ backgroundColor: deskripsiColor }}
-                    ></div>
-                    <div className="absolute z-30 transition-all">
-                      {deskripsiColorPicker ? (
-                        <div>
-                          <div
-                            className="top-0 right-0 bottom-0 left-0 fixed"
-                            onClick={handleDeskripsiColorPickerClose}
-                          ></div>
-                          <SketchPicker
-                            color={deskripsiColor}
-                            onChange={(event) => {
-                              setDeskripsiColor(event.hex);
-                            }}
-                          />
-                        </div>
-                      ) : (
-                        ""
-                      )}
-                    </div>
+                  <div
+                    onClick={handleDeskripsiColorPicker}
+                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                    style={{ backgroundColor: deskripsiColor }}
+                  ></div>
+                  <div className="absolute z-30 transition-all">
+                    {deskripsiColorPicker ? (
+                      <div>
+                        <div
+                          className="top-0 right-0 bottom-0 left-0 fixed"
+                          onClick={handleDeskripsiColorPickerClose}
+                        ></div>
+                        <SketchPicker
+                          color={deskripsiColor}
+                          onChange={(event) => {
+                            setDeskripsiColor(event.hex);
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
 
                   <button
@@ -279,6 +324,7 @@ export default function Create() {
                     onChange={(e) => {
                       setDeskripsiFontSize(e.target.value);
                     }}
+                    className="border rounded-sm text-xs bg-white p-1"
                   >
                     <option>Font Size</option>
                     <option value="text-xs">Extra Small</option>
@@ -288,10 +334,37 @@ export default function Create() {
                 </div>
               </div>
               <div>
-                <button className="px-4 py-2 tracking-wider mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all">
+                <button
+                  className="px-4 py-2 tracking-wider mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all"
+                  onClick={handlePostDesign}
+                >
                   Create
                 </button>
+
+                {postRequest ? (
+                  <p className="text-red-500 mt-2">
+                    Error... silahkan coba lagi!
+                  </p>
+                ) : (
+                  ""
+                )}
               </div>
+              {loading ? (
+                <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                  <div className="p-10 rounded shadow-sm bg-blue-500 z-50 ">
+                    <p className="font-semibold text-lg text-white ">
+                      Creating...
+                    </p>
+                    <div className="flex justify-center items-center space-x-2 mt-4">
+                      <div className="animate-bounce w-4 h-4 rounded-full bg-white"></div>
+                      <div className="animate-bounce animation-delay-100 w-4 h-4 rounded-full bg-white"></div>
+                      <div className="animate-bounce animation-delay-200 w-4 h-4 rounded-full bg-white"></div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                ""
+              )}
             </form>
           ) : (
             ""
@@ -320,10 +393,10 @@ export default function Create() {
            justify-center items-center bg-gray-200"
           >
             {!selectedImage && (
-              <div className="w-20 h-20 rounded-full bg-gray-600"></div>
+              <div className="w-28 h-28 rounded-full bg-gray-600"></div>
             )}
             {selectedImage && (
-              <div className="w-20 h-20 rounded-full ">
+              <div className="w-28 h-28 rounded-full ">
                 <img
                   className="rounded-full bg-cover bg-center"
                   src={URL.createObjectURL(selectedImage)}
@@ -337,7 +410,7 @@ export default function Create() {
                 color: namaBisnisColor,
                 fontStyle: namaBisnisStyleItalic,
               }}
-              className="mt-4"
+              className="mt-6"
             >
               <h1 className={`${namaBisnisFontSize}`}>{namaBisnis}</h1>
             </div>
