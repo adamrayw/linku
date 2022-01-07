@@ -9,7 +9,9 @@ export default function FinalLink() {
   React.useEffect(() => {
     async function getData() {
       setNotFound(true);
-      const response = await fetch("http://127.0.0.1:8000/api/" + link);
+      const response = await fetch(
+        "https://linku-backend.herokuapp.com/api/" + link
+      );
       const datas = await response.json();
       console.log(datas);
       if (datas.data.length === 0) {
@@ -47,7 +49,7 @@ export default function FinalLink() {
                 <div className="w-28 h-28 rounded-full">
                   <img
                     className="rounded-full bg-cover bg-center"
-                    src={`http://127.0.0.1:8000/storage/${item.image}`}
+                    src={`https://linku-backend.herokuapp.com/storage/${item.image}`}
                     alt=""
                   />
                 </div>

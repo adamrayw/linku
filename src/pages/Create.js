@@ -125,7 +125,7 @@ export default function Create() {
       body: formData,
     };
     const response = await fetch(
-      "http://127.0.0.1:8000/api/design",
+      "https://linku-backend.herokuapp.com/api/design",
       requestOptions
     );
 
