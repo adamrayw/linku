@@ -61,6 +61,7 @@ export default function FinalLink() {
                 </div>
                 <div className="mt-6">
                   <div
+                    style={{ color: item.deskripsi_color }}
                     className={`mt-2 text-center font-${item.deskripsi_font_weight} ${item.deskripsi_font_style} ${item.deskripsi_font_size}`}
                   >
                     {item.deskripsi}
