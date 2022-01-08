@@ -186,23 +186,22 @@ export default function Create() {
             {activeTab === "tab1" ? (
               <section className="space-y-6">
                 <div>
-                  <label className="block text-sm mb-1  text-gray-400">
+                  <label className="block text-sm mb-1 text-gray-400">
                     My Link
                   </label>
-                  <div class="mt-1 relative  rounded-md shadow-sm">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <span class="text-gray-500 sm:text-sm">
-                        https://linku.id/
-                      </span>
-                    </div>
+                  <div class="mt-1 rounded-md">
                     <input
                       type="text"
-                      class="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full pl-28 py-2 sm:text-sm border-gray-300 rounded-md"
+                      class="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full p-2 sm:text-sm border-gray-300 rounded-md"
                       placeholder="yourname"
                       onChange={(e) => {
                         setLink(e.target.value);
                       }}
                     />
+                    <div className="mt-1 text-xs font-light text-gray-400">
+                      https://linku.netlify.app/
+                      <span className="text-blue-500">yourname</span>
+                    </div>
                   </div>
                 </div>
                 <div>
@@ -227,7 +226,7 @@ export default function Create() {
                   <input
                     type="text"
                     name="namaBisnis"
-                    className="border text-gray-500 w-full rounded px-2 py-1 text-base focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="border text-gray-500 w-full rounded p-2 text-base focus:ring-2 focus:ring-blue-500 transition-all"
                     onChange={(event) => {
                       setNamaBisnis(event.target.value);
                     }}
@@ -297,7 +296,7 @@ export default function Create() {
                     Deskripsi (optional)
                   </label>
                   <textarea
-                    className="border text-gray-500 w-full rounded px-2 py-1 text-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="border text-gray-500 w-full rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 transition-all"
                     onChange={(event) => {
                       setDeskripsi(event.target.value);
                     }}
@@ -373,7 +372,7 @@ export default function Create() {
                   </button>
 
                   {postRequestFailed ? (
-                    <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="fixed md:max-w-full w-72 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="px-6 py-4 rounded shadow-sm bg-red-500 z-50 ">
                         <button
                           onClick={() => {
@@ -411,7 +410,7 @@ export default function Create() {
                         <p className="font-bold text-xl text-white text-center">
                           Error
                         </p>
-                        <p className="font-light mt-1 text-sm text-white text-center">
+                        <p className="font-light mt-1 mb-4 text-xs text-white text-center">
                           Silahkan coba lagi.
                         </p>
                       </div>
@@ -420,7 +419,7 @@ export default function Create() {
                     ""
                   )}
                   {postRequestSucces ? (
-                    <div className="fixed max-w-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="fixed md:max-w-full w-72 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="px-6 py-4 rounded shadow-sm bg-gray-50 z-50 ">
                         <button
                           onClick={() => {
@@ -460,14 +459,14 @@ export default function Create() {
                         <p className="font-bold mt-2 text-xl text-blue-500 text-center">
                           Berhasil Membuat!
                         </p>
-                        <p className="font-light mt-1 text-sm text-blue-500  text-center">
+                        <p className="font-light mt-1 text-xs text-blue-500  text-center">
                           Di bawah adalah link kamu, silahkan copy & paste di
                           bio social media kamu!
                         </p>
                         <input
                           type="text"
-                          className="border w-full text-center mt-4 mb-2 border-blue-500 bg-white rounded-md px-4 py-2"
-                          value={`linku.id/${link}`}
+                          className="border w-full text-center mt-4 mb-2 text-gray-500 border-blue-500 bg-white rounded-md px-4 py-2"
+                          value={`linku.netlify.app/${link}`}
                           disabled
                         />
                       </div>
