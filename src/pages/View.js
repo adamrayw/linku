@@ -42,7 +42,7 @@ export default function FinalLink() {
           </div>
         </div>
       ) : (
-        <div className="max-w-7xl px-4 mx-auto h-screen flex flex-col justify-center items-center bg-gray-200">
+        <div className="max-w-7xl px-6 mx-auto h-screen flex flex-col justify-center items-center bg-gray-200">
           {data.map((item) => {
             return (
               <>
@@ -53,18 +53,22 @@ export default function FinalLink() {
                     alt=""
                   />
                 </div>
-                <div
-                  style={{ color: item.nama_color }}
-                  className={`mt-8 h-4 font-${item.nama_font_weight} ${item.nama_font_style} ${item.nama_font_size}`}
-                >
-                  {item.nama}
-                </div>
-                <div className="mt-6">
-                  <div
-                    style={{ color: item.deskripsi_color }}
-                    className={`mt-2 text-center font-${item.deskripsi_font_weight} ${item.deskripsi_font_style} ${item.deskripsi_font_size}`}
+                <div className={`mt-8 text-center`}>
+                  <h1
+                    style={{ color: item.nama_color }}
+                    className={`font-${item.nama_font_weight} ${item.nama_font_style} ${item.nama_font_size}`}
                   >
-                    {item.deskripsi}
+                    {item.nama}
+                  </h1>
+                </div>
+                <div className="mt-4">
+                  <div className="text-center">
+                    <p
+                      style={{ color: item.deskripsi_color }}
+                      className={`font-${item.deskripsi_font_weight} ${item.deskripsi_font_style} ${item.deskripsi_font_size}`}
+                    >
+                      {item.deskripsi}
+                    </p>
                   </div>
                 </div>
               </>
