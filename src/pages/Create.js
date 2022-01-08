@@ -420,7 +420,7 @@ export default function Create() {
                     ""
                   )}
                   {postRequestSucces ? (
-                    <div className="fixed max-w-sm top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div className="fixed max-w-lg top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="px-6 py-4 rounded shadow-sm bg-gray-50 z-50 ">
                         <button
                           onClick={() => {
@@ -516,7 +516,7 @@ export default function Create() {
           <div>
             <div
               style={{ height: "684px" }}
-              className="shadow px-4 md:w-96 w-full flex flex-col
+              className="shadow px-6 md:w-96 w-full flex flex-col
            justify-center items-center bg-gray-200"
             >
               {!selectedImage && (
@@ -531,17 +531,19 @@ export default function Create() {
                   />
                 </div>
               )}
-              <div
-                style={{
-                  fontWeight: namaBisnisStyleBold,
-                  color: namaBisnisColor,
-                  fontStyle: namaBisnisStyleItalic,
-                }}
-                className="mt-6"
-              >
-                <h1 className={`${namaBisnisFontSize}`}>{namaBisnis}</h1>
+              <div className="mt-8 text-center">
+                <h1
+                  style={{
+                    fontWeight: namaBisnisStyleBold,
+                    color: namaBisnisColor,
+                    fontStyle: namaBisnisStyleItalic,
+                  }}
+                  className={`${namaBisnisFontSize}`}
+                >
+                  {namaBisnis}
+                </h1>
               </div>
-              <div className="mt-2">
+              <div className="mt-4">
                 <p
                   style={{
                     fontWeight: deskripsiStyleBold,
