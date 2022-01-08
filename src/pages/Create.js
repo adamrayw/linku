@@ -284,9 +284,11 @@ export default function Create() {
                       className="border rounded-sm text-xs bg-white p-1"
                     >
                       <option>Font Size</option>
-                      <option value="text-xs">Extra Small</option>
                       <option value="text-sm">Small</option>
+                      <option value="text-md">Medium</option>
                       <option value="text-lg">Large</option>
+                      <option value="text-xl">Extra Large</option>
+                      <option value="text-2xl">2x Extra Large</option>
                     </select>
                   </div>
                 </div>
@@ -354,9 +356,11 @@ export default function Create() {
                       className="border rounded-sm text-xs bg-white p-1"
                     >
                       <option>Font Size</option>
-                      <option value="text-xs">Extra Small</option>
                       <option value="text-sm">Small</option>
+                      <option value="text-md">Medium</option>
                       <option value="text-lg">Large</option>
+                      <option value="text-xl">Extra Large</option>
+                      <option value="text-2xl">2x Extra Large</option>
                     </select>
                   </div>
                 </div>
