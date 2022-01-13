@@ -1,33 +1,37 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { SketchPicker } from "react-color";
+import Links from "../components/Links";
 import Navbar from "../components/Navbar";
+import { Context } from "../context/context";
 
 export default function Create() {
   const [link, setLink] = React.useState();
   const [namaBisnis, setNamaBisnis] = React.useState(
     "PT. MENCARI CINTA SEJATI"
   );
-  const [namaBisnisStyleBold, setNamaBisnisStyleBold] = React.useState("");
-  const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = React.useState("");
-  const [namaBisnisColor, setnamaBisnisColor] = React.useState("");
-  const [deskripsi, setDeskripsi] = React.useState("Grow with us!");
-  const [selectedImage, setSelectedImage] = React.useState("");
-  const [deskripsiStyleBold, setDeskripsiStyleBold] = React.useState("");
-  const [deskripsiStyleItalic, setDeskripsiStyleItalic] = React.useState("");
-  const [deskripsiColor, setDeskripsiColor] = React.useState("");
-  const [activeTab, setActiveTab] = React.useState("tab1");
-  const [deskripsiColorPicker, setDeskripsiColorPicker] = React.useState(false);
-  const [namaBisnisColorPicker, setNamaBisnisColorPicker] =
-    React.useState(false);
-  const [deskripsiFontSize, setDeskripsiFontSize] = React.useState("");
-  const [namaBisnisFontSize, setNamaBisnisFontSize] = React.useState("");
-  const [postRequestFailed, setPostRequestFailed] = React.useState(false);
-  const [postRequestSucces, setPostRequestSucces] = React.useState(false);
-  const [loading, setLoading] = React.useState();
+  const [namaBisnisStyleBold, setNamaBisnisStyleBold] = useState("");
+  const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = useState("");
+  const [namaBisnisColor, setnamaBisnisColor] = useState("");
+  const [deskripsi, setDeskripsi] = useState("Grow with us!");
+  const [selectedImage, setSelectedImage] = useState("");
+  const [deskripsiStyleBold, setDeskripsiStyleBold] = useState("");
+  const [deskripsiStyleItalic, setDeskripsiStyleItalic] = useState("");
+  const [deskripsiColor, setDeskripsiColor] = useState("");
+  const [activeTab, setActiveTab] = useState("tab1");
+  const [deskripsiColorPicker, setDeskripsiColorPicker] = useState(false);
+  const [namaBisnisColorPicker, setNamaBisnisColorPicker] = useState(false);
+  const [deskripsiFontSize, setDeskripsiFontSize] = useState("");
+  const [namaBisnisFontSize, setNamaBisnisFontSize] = useState("");
+  const [postRequestFailed, setPostRequestFailed] = useState(false);
+  const [postRequestSucces, setPostRequestSucces] = useState(false);
+  const [loading, setLoading] = useState();
+  // const [links, setLinks] = useState([]);
 
-  React.useEffect(() => {
+  const context = useContext(Context);
+
+  useEffect(() => {
     document.title = "Create";
-  });
+  }, []);
 
   function handleNamaBisnisColorPicker() {
     setNamaBisnisColorPicker(!namaBisnisColorPicker);
@@ -140,6 +144,9 @@ export default function Create() {
     }
   }
 
+  // context.map((e) => {
+  //   console.log(e.nama);
+  // });
   return (
     <>
       <Navbar />
@@ -189,10 +196,10 @@ export default function Create() {
                   <label className="block text-sm mb-1 text-gray-400">
                     My Link
                   </label>
-                  <div class="mt-1 rounded-md">
+                  <div className="mt-1 rounded-md">
                     <input
                       type="text"
-                      class="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full p-2 sm:text-sm border-gray-300 rounded-md"
+                      className="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full p-2 sm:text-sm border-gray-300 rounded-md"
                       placeholder="yourname"
                       onChange={(e) => {
                         setLink(e.target.value);
@@ -506,7 +513,7 @@ export default function Create() {
 
             {activeTab === "tab2" ? (
               <div>
-                <p>Links</p>
+                <Links />
               </div>
             ) : (
               ""
@@ -553,6 +560,15 @@ export default function Create() {
                 >
                   {deskripsi}
                 </p>
+              </div>
+              <div className="links">
+                {context[0].map((e) => {
+                  return (
+                    <div>
+                      <a href={e.link}>{e.nama}</a>
+                    </div>
+                  );
+                })}
               </div>
             </div>
             <p className="text-sm mt-1 text-gray-400">Preview</p>
