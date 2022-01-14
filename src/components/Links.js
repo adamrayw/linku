@@ -222,7 +222,7 @@ export default function Links() {
           </div>
           <div>
             {edit.id ? (
-              <div className="md:mt-0 md:mb-1 mt-6">
+              <div className="md:mt-0 md:mb-1 mt-6 text-center">
                 <button className="w-8 h-8 p-2 mb-1 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
@@ -254,7 +254,7 @@ export default function Links() {
       <div>
         <hr className="my-4" />
         {context && (
-          <div className="space-y-2">
+          <div className="space-y-4">
             {context.map((item) => {
               return (
                 <div className="flex flex-col items-start">
@@ -273,7 +273,7 @@ export default function Links() {
                     </button>
                   </div>
                   <button
-                    className="space-x-2 bg-white text-blue-500 rounded-md px-2 py-1"
+                    className="space-x-2 bg-white text-blue-500 rounded-md px-2 py-2"
                     onClick={handleEdit.bind(this, item)}
                   >
                     <FontAwesomeIcon icon={faEdit} />
