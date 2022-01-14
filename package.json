@@ -10,6 +10,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@windmill/react-ui": "^0.6.0",
     "history": "^5.2.0",
     "react": "^17.0.2",
     "react-color": "^2.19.3",
