@@ -95,6 +95,11 @@ export default function Links() {
 
     setEdit({});
     setContext(filtered);
+    setNama("");
+    setBgColor("");
+    setEditData({});
+    setTextColor("");
+    setLink("");
   }
 
   function handleEdit(item) {
