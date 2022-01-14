@@ -19,11 +19,16 @@ export default function Links() {
   const [edit, setEdit] = useState([]);
   const [editData, setEditData] = useState({});
   const [bgColorPicker, setBgColorPicker] = useState(false);
+  const [textColorPicker, setTextColorPicker] = useState(false);
 
   console.log(msg);
 
   function handleBgColorPickerClose() {
     setBgColorPicker(!bgColorPicker);
+  }
+
+  function handleTextColorPickerClose() {
+    setTextColorPicker(!textColorPicker);
   }
 
   function generateId() {
@@ -44,6 +49,7 @@ export default function Links() {
         nama,
         link,
         bgColor: bgcolor,
+        textColor: textcolor,
       };
 
       const linkFindIndex = context.findIndex((links) => {
@@ -137,30 +143,58 @@ export default function Links() {
               />
             </div>
             {edit.id ? (
-              <div>
-                <p className="text-xs text-gray-400">Warna Background</p>
-                <div
-                  onClick={handleBgColorPickerClose}
-                  className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
-                  style={{ backgroundColor: bgcolor }}
-                ></div>
-                <div className="absolute z-30 transition-all">
-                  {bgColorPicker ? (
-                    <div>
-                      <div
-                        className="top-0 right-0 bottom-0 left-0 fixed"
-                        onClick={handleBgColorPickerClose}
-                      ></div>
-                      <SketchPicker
-                        color={bgcolor}
-                        onChange={(event) => {
-                          setBgColor(event.hex);
-                        }}
-                      />
-                    </div>
-                  ) : (
-                    ""
-                  )}
+              <div className="flex items-center space-x-3">
+                <div>
+                  <p className="text-xs text-gray-400">Warna Background</p>
+                  <div
+                    onClick={handleBgColorPickerClose}
+                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                    style={{ backgroundColor: bgcolor }}
+                  ></div>
+                  <div className="absolute z-30 transition-all">
+                    {bgColorPicker ? (
+                      <div>
+                        <div
+                          className="top-0 right-0 bottom-0 left-0 fixed"
+                          onClick={handleBgColorPickerClose}
+                        ></div>
+                        <SketchPicker
+                          color={bgcolor}
+                          onChange={(event) => {
+                            setBgColor(event.hex);
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-400">Warna Text</p>
+                  <div
+                    onClick={handleTextColorPickerClose}
+                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                    style={{ backgroundColor: textcolor }}
+                  ></div>
+                  <div className="absolute z-30 transition-all">
+                    {textColorPicker ? (
+                      <div>
+                        <div
+                          className="top-0 right-0 bottom-0 left-0 fixed"
+                          onClick={handleTextColorPickerClose}
+                        ></div>
+                        <SketchPicker
+                          color={textcolor}
+                          onChange={(event) => {
+                            setTextColor(event.hex);
+                          }}
+                        />
+                      </div>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
               </div>
             ) : (
