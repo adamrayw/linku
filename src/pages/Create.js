@@ -514,9 +514,11 @@ export default function Create() {
             )}
           </div>
           <div>
+            <p className="text-sm mb-1 md:mt-1 mt-6 text-gray-400">Preview</p>
+
             <div
               style={{ height: "684px" }}
-              className="shadow px-6 md:w-96 w-full flex flex-col
+              className="shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
            justify-center items-center bg-gray-200"
             >
               {!selectedImage && (
@@ -582,7 +584,6 @@ export default function Create() {
                 })}
               </div>
             </div>
-            <p className="text-sm mt-1 text-gray-400">Preview</p>
           </div>
         </div>
       </section>
