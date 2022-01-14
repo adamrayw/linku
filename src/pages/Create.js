@@ -556,12 +556,17 @@ export default function Create() {
                 </p>
               </div>
 
-              <div className="links mt-6 space-y-2">
+              <div className="links mt-6 space-y-4">
                 {context[0].map((e) => {
                   return (
                     <div key={e.id}>
                       <a href={e.link} className="text-center">
-                        <div className="p-4 rounded-lg w-64">
+                        <div
+                          style={{
+                            backgroundColor: e.bgColor,
+                          }}
+                          className="p-4 rounded-lg w-64"
+                        >
                           <p
                             style={{
                               color: e.textColor,
