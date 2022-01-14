@@ -6,13 +6,11 @@ import { Context } from "../context/context";
 
 export default function Create() {
   const [link, setLink] = React.useState();
-  const [namaBisnis, setNamaBisnis] = React.useState(
-    "PT. MENCARI CINTA SEJATI"
-  );
+  const [namaBisnis, setNamaBisnis] = React.useState("NAMA KAMU");
   const [namaBisnisStyleBold, setNamaBisnisStyleBold] = useState("");
   const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = useState("");
   const [namaBisnisColor, setnamaBisnisColor] = useState("");
-  const [deskripsi, setDeskripsi] = useState("Grow with us!");
+  const [deskripsi, setDeskripsi] = useState("Tumbuh bersama kami!");
   const [selectedImage, setSelectedImage] = useState("");
   const [deskripsiStyleBold, setDeskripsiStyleBold] = useState("");
   const [deskripsiStyleItalic, setDeskripsiStyleItalic] = useState("");
@@ -25,7 +23,6 @@ export default function Create() {
   const [postRequestFailed, setPostRequestFailed] = useState(false);
   const [postRequestSucces, setPostRequestSucces] = useState(false);
   const [loading, setLoading] = useState();
-  // const [links, setLinks] = useState([]);
 
   const context = useContext(Context);
 
@@ -144,9 +141,6 @@ export default function Create() {
     }
   }
 
-  // context.map((e) => {
-  //   console.log(e.nama);
-  // });
   return (
     <>
       <Navbar />
@@ -213,7 +207,7 @@ export default function Create() {
                 </div>
                 <div>
                   <label className="block text-sm mb-1 mt-4  text-gray-400">
-                    Gambar
+                    Logo
                   </label>
                   <input
                     type="file"
@@ -414,8 +408,8 @@ export default function Create() {
                             clipRule="evenodd"
                           />
                         </svg>
-                        <p className="font-bold text-xl text-white text-center">
-                          Error
+                        <p className="font-bold mt-2 text-xl text-white text-center">
+                          Gagal Membuat
                         </p>
                         <p className="font-light mt-1 mb-4 text-xs text-white text-center">
                           Silahkan coba lagi.
@@ -486,7 +480,7 @@ export default function Create() {
                   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="p-10 rounded shadow-sm bg-blue-500 z-50 ">
                       <p className="font-semibold text-lg text-white ">
-                        Creating...
+                        Sedang Membuat...
                       </p>
                       <div className="flex justify-center items-center space-x-2 mt-4">
                         <div className="animate-bounce w-4 h-4 rounded-full bg-white"></div>
@@ -561,11 +555,23 @@ export default function Create() {
                   {deskripsi}
                 </p>
               </div>
-              <div className="links">
+
+              <div className="links mt-6 space-y-2">
                 {context[0].map((e) => {
                   return (
-                    <div>
-                      <a href={e.link}>{e.nama}</a>
+                    <div key={e.id}>
+                      <a href={e.link} className="text-center">
+                        <div className="p-4 rounded-lg w-64">
+                          <p
+                            style={{
+                              color: e.textColor,
+                              backgroundColor: e.bgColor,
+                            }}
+                          >
+                            {e.nama}
+                          </p>
+                        </div>
+                      </a>
                     </div>
                   );
                 })}
