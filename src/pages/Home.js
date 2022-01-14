@@ -22,13 +22,13 @@ export default function Home() {
       <Navbar />
       <main>
         <section className="text-center max-w-xl mx-auto md:py-10 p-10 border-b">
-          <h1 className="text-4xl font-bold text-gray-700">LINKU</h1>
+          <h1 className="text-4xl font-bold text-blue-500">LINKU</h1>
           <p className="md:text-2xl text-lg text-gray-500 mt-4">
-            Link bisnis kamu dalam satu halaman
+            Buat beberapa link dalam satu halaman
           </p>
           <Link
             to="/create"
-            className="mt-6 inline-block font-semibold bg-blue-500 px-4 py-2 rounded-lg text-white hover:bg-blue-700 transition-all"
+            className="mt-6 inline-block font-semibold bg-blue-500 px-4 py-2 rounded-lg text-white hover:bg-blue-600 active:bg-blue-800 transition-all "
             type="button"
           >
             Buat sekarang
