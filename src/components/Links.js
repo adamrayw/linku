@@ -116,12 +116,21 @@ export default function Links() {
     setEdit({});
     setNama("");
     setLink("");
+    setBgColor("");
+    setTextColor("");
   }
 
   return (
     <section>
+      {edit.id && (
+        <>
+          <p className="mb-3 md:text-left text-center text-gray-500">
+            Mode Edit & Desain
+          </p>
+        </>
+      )}
       <form onSubmit={saveLink}>
-        <div className="flex md:flex-row flex-col items-center">
+        <div className="flex md:flex-row flex-col justify-between md:items-start items-center">
           <div className="space-y-2 ">
             <div>
               <input
@@ -148,57 +157,62 @@ export default function Links() {
               />
             </div>
             {edit.id ? (
-              <div className="flex items-center space-x-3">
-                <div>
-                  <p className="text-xs text-gray-400">Warna Background</p>
-                  <div
-                    onClick={handleBgColorPickerClose}
-                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
-                    style={{ backgroundColor: bgcolor }}
-                  ></div>
-                  <div className="absolute z-30 transition-all">
-                    {bgColorPicker ? (
-                      <div>
-                        <div
-                          className="top-0 right-0 bottom-0 left-0 fixed"
-                          onClick={handleBgColorPickerClose}
-                        ></div>
-                        <SketchPicker
-                          color={bgcolor}
-                          onChange={(event) => {
-                            setBgColor(event.hex);
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      ""
-                    )}
+              <div className="py-6 ">
+                <p className="mb-3 text-gray-500">Desain</p>
+                <div className="flex justify-between items-center space-x-3">
+                  <div>
+                    <p className="text-xs mb-2 text-gray-400">
+                      Warna Background
+                    </p>
+                    <div
+                      onClick={handleBgColorPickerClose}
+                      className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                      style={{ backgroundColor: bgcolor }}
+                    ></div>
+                    <div className="absolute z-30 transition-all">
+                      {bgColorPicker ? (
+                        <div>
+                          <div
+                            className="top-0 right-0 bottom-0 left-0 fixed"
+                            onClick={handleBgColorPickerClose}
+                          ></div>
+                          <SketchPicker
+                            color={bgcolor}
+                            onChange={(event) => {
+                              setBgColor(event.hex);
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-400">Warna Text</p>
-                  <div
-                    onClick={handleTextColorPickerClose}
-                    className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
-                    style={{ backgroundColor: textcolor }}
-                  ></div>
-                  <div className="absolute z-30 transition-all">
-                    {textColorPicker ? (
-                      <div>
-                        <div
-                          className="top-0 right-0 bottom-0 left-0 fixed"
-                          onClick={handleTextColorPickerClose}
-                        ></div>
-                        <SketchPicker
-                          color={textcolor}
-                          onChange={(event) => {
-                            setTextColor(event.hex);
-                          }}
-                        />
-                      </div>
-                    ) : (
-                      ""
-                    )}
+                  <div>
+                    <p className="text-xs mb-2 text-gray-400">Warna Text</p>
+                    <div
+                      onClick={handleTextColorPickerClose}
+                      className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
+                      style={{ backgroundColor: textcolor }}
+                    ></div>
+                    <div className="absolute z-30 transition-all">
+                      {textColorPicker ? (
+                        <div>
+                          <div
+                            className="top-0 right-0 bottom-0 left-0 fixed"
+                            onClick={handleTextColorPickerClose}
+                          ></div>
+                          <SketchPicker
+                            color={textcolor}
+                            onChange={(event) => {
+                              setTextColor(event.hex);
+                            }}
+                          />
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -208,16 +222,16 @@ export default function Links() {
           </div>
           <div>
             {edit.id ? (
-              <>
-                <button className="w-8 h-8 p-2 md:mt-0 mt-2 md:ml-4 mt rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
+              <div className="md:mt-0 md:mb-1 mt-6">
+                <button className="w-8 h-8 p-2 mb-1 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <button className="md:ml-4 mt-2 text-xs" onClick={cancelEdit}>
+                <button className="text-xs" onClick={cancelEdit}>
                   Batal
                 </button>
-              </>
+              </div>
             ) : (
-              <button className="w-8 h-8 p-2 md:mt-0 mt-2 md:ml-4 mt rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
+              <button className="w-8 h-8 p-2 md:mt-0 md:my-2 my-6 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
                 +
               </button>
             )}
@@ -243,18 +257,10 @@ export default function Links() {
           <div className="space-y-2">
             {context.map((item) => {
               return (
-                <div className="flex flex-col">
-                  <div className="flex items-center" key={item.id}>
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center w-full" key={item.id}>
                     <div className="md:w-64 w-full rounded-md bg-gradient-to-r from-sky-500 to-indigo-500 text-white p-2 px-3 shadow-sm flex justify-between items-center">
                       {item.nama}
-                      <div className="space-x-3 pl-2 flex items-center">
-                        <button>
-                          <FontAwesomeIcon icon={faPalette} />
-                        </button>
-                        <button onClick={handleEdit.bind(this, item)}>
-                          <FontAwesomeIcon icon={faEdit} />
-                        </button>
-                      </div>
                     </div>
                     <button
                       className="ml-2"
@@ -266,6 +272,14 @@ export default function Links() {
                       />
                     </button>
                   </div>
+                  <button
+                    className="space-x-2 bg-white text-blue-500 rounded-md px-2 py-1"
+                    onClick={handleEdit.bind(this, item)}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                    <span>&</span>
+                    <FontAwesomeIcon icon={faPalette} />
+                  </button>
                 </div>
               );
             })}
