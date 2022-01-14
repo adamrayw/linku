@@ -223,15 +223,15 @@ export default function Links() {
           <div>
             {edit.id ? (
               <div className="md:mt-0 md:mb-1 mt-6 text-center">
-                <button className="w-8 h-8 p-2 mb-1 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
+                <button className="w-10 h-10 p-4 mb-1 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
                   <FontAwesomeIcon icon={faEdit} />
                 </button>
-                <button className="text-xs" onClick={cancelEdit}>
+                <button className="text-xs text-gray-400" onClick={cancelEdit}>
                   Batal
                 </button>
               </div>
             ) : (
-              <button className="w-8 h-8 p-2 md:mt-0 md:my-2 my-6 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
+              <button className="w-10 h-10 p-4 md:mt-0 md:my-2 my-6 rounded-full shadow-lg hover:shadow-xl transition-all flex justify-center items-center text-gray-400 active:bg-blue-500 active:text-white">
                 +
               </button>
             )}
