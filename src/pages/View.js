@@ -46,7 +46,7 @@ export default function FinalLink() {
             const link = JSON.parse(item.data_link);
             return (
               <div key={item.id}>
-                <div className="w-28 h-28 rounded-full">
+                <div className="w-28 h-28 rounded-full mx-auto">
                   <img
                     className="rounded-full bg-cover bg-center"
                     src={`https://linku-backend.herokuapp.com/storage/${item.image}`}
