@@ -9,11 +9,8 @@ export default function FinalLink() {
   React.useEffect(() => {
     async function getData() {
       setNotFound(true);
-      const response = await fetch(
-        "https://linku-backend.herokuapp.com/api/" + link
-      );
+      const response = await fetch("http://127.0.0.1:8000/api/" + link);
       const datas = await response.json();
-      console.log(datas);
       if (datas.data.length === 0) {
         setNotFound(true);
       }
@@ -44,8 +41,9 @@ export default function FinalLink() {
       ) : (
         <div className="max-w-7xl px-6 mx-auto h-screen flex flex-col justify-center items-center bg-gray-200">
           {data.map((item) => {
+            const link = JSON.parse(item.data_link);
             return (
-              <>
+              <div key={item.id}>
                 <div className="w-28 h-28 rounded-full">
                   <img
                     className="rounded-full bg-cover bg-center"
@@ -71,7 +69,35 @@ export default function FinalLink() {
                     </p>
                   </div>
                 </div>
-              </>
+                <div>
+                  <div className="links mt-8 space-y-4 flex flex-col justify-center items-center">
+                    {link.map((e) => {
+                      return (
+                        <div key={e.id}>
+                          <a href={e.link} className="text-center">
+                            <div
+                              style={{
+                                backgroundColor: e.bgColor,
+                              }}
+                              className="p-4 rounded-lg w-64 "
+                            >
+                              <p
+                                style={{
+                                  color: e.textColor,
+                                  backgroundColor: e.bgColor,
+                                }}
+                                className="hover:bg-gray-300"
+                              >
+                                {e.nama}
+                              </p>
+                            </div>
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
             );
           })}
         </div>
