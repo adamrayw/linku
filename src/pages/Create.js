@@ -122,14 +122,12 @@ export default function Create() {
     formData.append("deskripsi_font_size", deskripsiFontSize);
     formData.append("data_link", JSON.stringify(context[0]));
 
-    console.log(context[0][0]);
-
     const requestOptions = {
       method: "POST",
       body: formData,
     };
     const response = await fetch(
-      "http://127.0.0.1:8000/api/design",
+      "https://linku-backend.herokuapp.com/api/design",
       requestOptions
     );
 
