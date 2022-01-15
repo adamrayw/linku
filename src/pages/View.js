@@ -9,7 +9,9 @@ export default function FinalLink() {
   React.useEffect(() => {
     async function getData() {
       setNotFound(true);
-      const response = await fetch("http://127.0.0.1:8000/api/" + link);
+      const response = await fetch(
+        "https://linku-backend.herokuapp.com/api/" + link
+      );
       const datas = await response.json();
       if (datas.data.length === 0) {
         setNotFound(true);
