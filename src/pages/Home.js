@@ -34,17 +34,13 @@ export default function Home() {
             Buat sekarang
           </Link>
         </section>
-        <div className="mt-8 text-center">
-          <h2 className="text-blue-500 text-2xl font-semibold">
-            Kenapa harus menggunakan linku?
-          </h2>
-        </div>
-        <section className="grid md:grid-cols-3 grid-cols-1 gap-6 md:py-10 p-10">
+
+        <section className="grid md:grid-cols-3 grid-cols-1 gap-6 md:py-10 py-10 px-14 ">
           <div className="text-center shadow px-4 py-10 inline-block rounded-lg bg-white">
             <h2 className="text-2xl text-gray-700 font-semibold">
               Gunakan nama apa saja
             </h2>
-            <p className="text-sm my-1 text-gray-500">
+            <p className="text-sm my-2 text-gray-500">
               Gunakan nama personal, brand atau perusahaan agar semakin mudah
               dikenal
             </p>
@@ -58,7 +54,7 @@ export default function Home() {
             <h2 className="text-2xl text-gray-700 font-semibold">
               Banyak Pilihan Logo
             </h2>
-            <p className="text-sm my-1 text-gray-500">
+            <p className="text-sm my-2 text-gray-500">
               Kami menyediakan banyak pilihan logo terkenal seperti tiktok,
               twitter, youtube dll.
             </p>
@@ -73,7 +69,7 @@ export default function Home() {
             <h2 className="text-2xl text-gray-700 font-semibold">
               Bebas Customize
             </h2>
-            <p className="text-sm my-1 text-gray-500">
+            <p className="text-sm my-2 text-gray-500">
               Pilih warna, tema, ukuran font dan masih banyak lagi!
             </p>
           </div>
