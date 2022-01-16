@@ -21,8 +21,6 @@ export default function Links() {
   const [bgColorPicker, setBgColorPicker] = useState(false);
   const [textColorPicker, setTextColorPicker] = useState(false);
 
-  console.log(msg);
-
   function handleBgColorPickerClose() {
     setBgColorPicker(!bgColorPicker);
   }
@@ -104,7 +102,7 @@ export default function Links() {
 
   function handleEdit(item) {
     setNama(item.nama);
-    setTextColor(item.textcolor);
+    setTextColor(item.textColor);
     setBgColor(item.bgColor);
     setLink(item.link);
     setEditData(item);
@@ -131,7 +129,7 @@ export default function Links() {
       )}
       <form onSubmit={saveLink}>
         <div className="flex md:flex-row flex-col justify-between md:items-start items-center">
-          <div className="space-y-2 ">
+          <div className="space-y-2 md:w-64">
             <div>
               <input
                 className="border text-gray-600 text-sm rounded py-2 px-3 placeholder-blue-500"
