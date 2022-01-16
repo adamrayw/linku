@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import { SketchPicker } from "react-color";
 import Links from "../components/Links";
 import Navbar from "../components/Navbar";
-import { Context } from "../context/context";
+import Themes from "../components/Themes";
+import { Context, Tema } from "../context/context";
 
 export default function Create() {
   const [link, setLink] = React.useState();
@@ -23,9 +24,16 @@ export default function Create() {
   const [postRequestFailed, setPostRequestFailed] = useState(false);
   const [postRequestSucces, setPostRequestSucces] = useState(false);
   const [loading, setLoading] = useState();
+  const [saveClickedBorder, setSaveClickedBorder] = useState("");
+  const pull_data = (data) => {
+    setSaveClickedBorder(data);
+  };
+
+  console.log(saveClickedBorder);
 
   const context = useContext(Context);
-
+  const tema = useContext(Tema);
+  console.log(tema[0]);
   useEffect(() => {
     document.title = "Create";
   }, []);
@@ -121,6 +129,7 @@ export default function Create() {
     formData.append("deskripsi_font_style", deskripsiStyleItalic);
     formData.append("deskripsi_font_size", deskripsiFontSize);
     formData.append("data_link", JSON.stringify(context[0]));
+    formData.append("tema", tema[0]);
 
     const requestOptions = {
       method: "POST",
@@ -284,9 +293,8 @@ export default function Create() {
                       }}
                       className="border rounded-sm text-xs bg-white p-1"
                     >
-                      <option>Font Size</option>
+                      <option>Normal</option>
                       <option value="text-sm">Small</option>
-                      <option value="text-md">Medium</option>
                       <option value="text-lg">Large</option>
                       <option value="text-xl">Extra Large</option>
                       <option value="text-2xl">2x Extra Large</option>
@@ -356,9 +364,12 @@ export default function Create() {
                       }}
                       className="border rounded-sm text-xs bg-white p-1"
                     >
-                      <option>Font Size</option>
+                      {deskripsiFontSize && (
+                        <option>{deskripsiFontSize}</option>
+                      )}
+
+                      <option>Normal</option>
                       <option value="text-sm">Small</option>
-                      <option value="text-md">Medium</option>
                       <option value="text-lg">Large</option>
                       <option value="text-xl">Extra Large</option>
                       <option value="text-2xl">2x Extra Large</option>
@@ -500,7 +511,7 @@ export default function Create() {
 
             {activeTab === "tab3" ? (
               <div>
-                <p>Coming soon...</p>
+                <Themes func={pull_data} />
               </div>
             ) : (
               ""
@@ -519,8 +530,8 @@ export default function Create() {
 
             <div
               style={{ height: "684px" }}
-              className="shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
-           justify-center items-center bg-gray-200"
+              className={`shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
+           justify-center items-center ${tema[0]}`}
             >
               {!selectedImage && (
                 <div className="w-28 h-28 rounded-full bg-gray-600"></div>
