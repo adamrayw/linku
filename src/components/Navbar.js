@@ -6,17 +6,17 @@ export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
-      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-white rounded-b-lg shadow-sm mb-3">
+      <nav className="relative flex flex-wrap items-center justify-between px-2 py-3 bg-blue-500 shadow-sm mb-3">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <a
-              className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-blue-500"
+              className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white"
               href="#pablo"
             >
               LINKU
             </a>
             <button
-              className="text-blue-500  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded block lg:hidden outline-none focus:outline-none"
+              className="text-white  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -33,7 +33,7 @@ export default function Navbar() {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               <li className="nav-item">
                 <Link
-                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-white hover:opacity-75"
                   to="/"
                 >
                   <span className="ml-2">Home</span>
@@ -41,20 +41,20 @@ export default function Navbar() {
               </li>
               <li className="nav-item">
                 <a
-                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
+                  className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-white hover:opacity-75"
                   href="#pablo"
                 >
                   <span className="ml-2">Feature</span>
                 </a>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Link
                   className="px-3 py-2 flex items-center text-xs uppercase font-medium leading-snug text-blue-500 hover:opacity-75"
                   to="/login"
                 >
                   <span className="ml-2">Login</span>
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
