@@ -6,15 +6,15 @@ import { Tema } from "../context/context";
 export default function Themes(props) {
   const [tema, setTema] = useContext(Tema);
   const [clickedBorder, setClickedBorder] = useState(props.value);
-
+  console.log(tema);
   props.func(clickedBorder);
 
   console.log(clickedBorder);
 
-  function hanldeChangeTema(number, color) {
-    setClickedBorder(number);
-    setTema(color);
-  }
+  // function hanldeChangeTema(number, color) {
+  //   setClickedBorder(number);
+  //   setTema(color);
+  // }
 
   return (
     <div>
