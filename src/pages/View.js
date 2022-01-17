@@ -110,6 +110,17 @@ export default function FinalLink() {
           })}
         </>
       )}
+      <footer>
+        <a
+          href="https://linku.netlify.app/"
+          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-white px-4 py-2 shadow-md rounded-full"
+        >
+          <p className="text-gray-400 text-xs ">
+            Powered by{" "}
+            <span className="text-blue-500 outline outline-white">Linku</span>
+          </p>
+        </a>
+      </footer>
     </section>
   );
 }
