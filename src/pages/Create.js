@@ -24,12 +24,6 @@ export default function Create() {
   const [postRequestFailed, setPostRequestFailed] = useState(false);
   const [postRequestSucces, setPostRequestSucces] = useState(false);
   const [loading, setLoading] = useState();
-  const [saveClickedBorder, setSaveClickedBorder] = useState("");
-  const pull_data = (data) => {
-    setSaveClickedBorder(data);
-  };
-
-  console.log(saveClickedBorder);
 
   const context = useContext(Context);
   const tema = useContext(Tema);
@@ -539,9 +533,9 @@ export default function Create() {
                 <div className="w-28 h-28 rounded-full bg-gray-600"></div>
               )}
               {selectedImage && (
-                <div className="w-28 h-28 rounded-full ">
+                <div>
                   <img
-                    className="rounded-full bg-cover bg-center"
+                    className="rounded-full w-32 h-32 bg-cover bg-center"
                     src={URL.createObjectURL(selectedImage)}
                     alt=""
                   />
