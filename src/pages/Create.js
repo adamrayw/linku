@@ -507,7 +507,7 @@ export default function Create() {
 
             {activeTab === "tab3" ? (
               <div>
-                <Themes func={pull_data} />
+                <Themes />
               </div>
             ) : (
               ""
