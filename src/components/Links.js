@@ -129,10 +129,10 @@ export default function Links() {
       )}
       <form onSubmit={saveLink}>
         <div className="flex md:flex-row flex-col justify-between md:items-start items-center">
-          <div className="space-y-2 md:w-64">
+          <div className="space-y-2 md:w-64 w-full">
             <div>
               <input
-                className="border text-gray-600 text-sm rounded py-2 px-3 placeholder-blue-500"
+                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:border-blue-500 placeholder-gray-500 transition-all"
                 type="text"
                 placeholder="ex: Twitter"
                 value={nama}
@@ -144,7 +144,7 @@ export default function Links() {
             </div>
             <div>
               <input
-                className="border text-gray-600 text-sm rounded py-2 px-3 placeholder-blue-500"
+                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:border-blue-500 placeholder-gray-500 transition-all"
                 type="text"
                 placeholder="https://twitter.com"
                 value={link}
