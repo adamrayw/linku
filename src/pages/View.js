@@ -41,68 +41,74 @@ export default function FinalLink() {
           </div>
         </div>
       ) : (
-        <div className="max-w-7xl px-6 mx-auto h-screen flex flex-col justify-center items-center bg-gray-200">
+        <>
           {data.map((item) => {
             const link = JSON.parse(item.data_link);
             return (
-              <div key={item.id}>
-                <div className="w-28 h-28 rounded-full mx-auto">
-                  <img
-                    className="rounded-full bg-cover bg-center"
-                    src={`${item.image}`}
-                    alt=""
-                  />
-                </div>
-                <div className={`mt-8 text-center`}>
-                  <h1
-                    style={{ color: item.nama_color }}
-                    className={`font-${item.nama_font_weight} ${item.nama_font_style} ${item.nama_font_size}`}
-                  >
-                    {item.nama}
-                  </h1>
-                </div>
-                <div className="mt-4">
-                  <div className="text-center">
-                    <p
-                      style={{ color: item.deskripsi_color }}
-                      className={`font-${item.deskripsi_font_weight} ${item.deskripsi_font_style} ${item.deskripsi_font_size}`}
-                    >
-                      {item.deskripsi}
-                    </p>
+              <div
+                className={`max-w-7xl px-6 mx-auto h-screen flex flex-col justify-center items-center ${
+                  item.tema ? item.tema : "bg-gray-200"
+                } `}
+              >
+                <div key={item.id}>
+                  <div className="w-28 h-28 rounded-full mx-auto">
+                    <img
+                      className="rounded-full bg-cover bg-center"
+                      src={`${item.image}`}
+                      alt=""
+                    />
                   </div>
-                </div>
-                <div>
-                  <div className="links mt-8 space-y-4 flex flex-col justify-center items-center">
-                    {link.map((e) => {
-                      return (
-                        <div key={e.id}>
-                          <a href={e.link} className="text-center">
-                            <div
-                              style={{
-                                backgroundColor: e.bgColor,
-                              }}
-                              className="p-4 rounded-lg w-64 "
-                            >
-                              <p
+                  <div className={`mt-8 text-center`}>
+                    <h1
+                      style={{ color: item.nama_color }}
+                      className={`font-${item.nama_font_weight} ${item.nama_font_style} ${item.nama_font_size}`}
+                    >
+                      {item.nama}
+                    </h1>
+                  </div>
+                  <div className="mt-4">
+                    <div className="text-center">
+                      <p
+                        style={{ color: item.deskripsi_color }}
+                        className={`font-${item.deskripsi_font_weight} ${item.deskripsi_font_style} ${item.deskripsi_font_size}`}
+                      >
+                        {item.deskripsi}
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="links mt-8 space-y-4 flex flex-col justify-center items-center">
+                      {link.map((e) => {
+                        return (
+                          <div key={e.id}>
+                            <a href={e.link} className="text-center">
+                              <div
                                 style={{
-                                  color: e.textColor,
                                   backgroundColor: e.bgColor,
                                 }}
-                                className="hover:bg-gray-300"
+                                className="p-4 rounded-lg w-64 "
                               >
-                                {e.nama}
-                              </p>
-                            </div>
-                          </a>
-                        </div>
-                      );
-                    })}
+                                <p
+                                  style={{
+                                    color: e.textColor,
+                                    backgroundColor: e.bgColor,
+                                  }}
+                                  className="hover:bg-gray-300"
+                                >
+                                  {e.nama}
+                                </p>
+                              </div>
+                            </a>
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
                 </div>
               </div>
             );
           })}
-        </div>
+        </>
       )}
     </section>
   );
