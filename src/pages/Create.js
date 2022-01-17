@@ -7,15 +7,15 @@ import { Context, Tema } from "../context/context";
 
 export default function Create() {
   const [link, setLink] = React.useState();
-  const [namaBisnis, setNamaBisnis] = React.useState("NAMA KAMU");
+  const [namaBisnis, setNamaBisnis] = React.useState("");
   const [namaBisnisStyleBold, setNamaBisnisStyleBold] = useState("");
   const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = useState("");
-  const [namaBisnisColor, setnamaBisnisColor] = useState("");
-  const [deskripsi, setDeskripsi] = useState("Tumbuh bersama kami!");
+  const [namaBisnisColor, setnamaBisnisColor] = useState("#000000");
+  const [deskripsi, setDeskripsi] = useState("");
   const [selectedImage, setSelectedImage] = useState("");
   const [deskripsiStyleBold, setDeskripsiStyleBold] = useState("");
   const [deskripsiStyleItalic, setDeskripsiStyleItalic] = useState("");
-  const [deskripsiColor, setDeskripsiColor] = useState("");
+  const [deskripsiColor, setDeskripsiColor] = useState("#000000");
   const [activeTab, setActiveTab] = useState("tab1");
   const [deskripsiColorPicker, setDeskripsiColorPicker] = useState(false);
   const [namaBisnisColorPicker, setNamaBisnisColorPicker] = useState(false);
@@ -150,9 +150,17 @@ export default function Create() {
     <>
       <Navbar />
       <section className="py-10">
-        <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 md:px-0 px-4">
-          Desain Halaman
-        </h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 px-0">
+            Desain Halaman
+          </h1>
+          <button
+            className="px-4 py-2 tracking-wider w-24 text-white font-bold rounded bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-indigo-500 hover:to-sky-500 transition-colors"
+            onClick={handlePostDesign}
+          >
+            Create
+          </button>
+        </div>
         <div className="mt-6">
           <ul className="flex space-x-6 md:justify-start justify-center">
             <li
@@ -198,7 +206,7 @@ export default function Create() {
                   <div className="mt-1 rounded-md">
                     <input
                       type="text"
-                      className="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full p-2 sm:text-sm border-gray-300 rounded-md"
+                      className="border focus:border-blue-500 text-blue-500 placeholder-blue-500 block w-full py-2 px-3 text-base border-gray-300 rounded-md transition-all"
                       placeholder="yourname"
                       value={link}
                       onChange={(e) => {
@@ -228,12 +236,12 @@ export default function Create() {
                 </div>
                 <div>
                   <label className="block text-sm mb-1 mt-4  text-gray-400">
-                    Nama Bisnis
+                    Nama
                   </label>
                   <input
                     type="text"
                     name="namaBisnis"
-                    className="border text-gray-500 w-full rounded p-2 text-base focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="border text-gray-500 w-full rounded py-2 px-3 text-base focus:ring-2 focus:border-blue-500 transition-all"
                     onChange={(event) => {
                       setNamaBisnis(event.target.value);
                     }}
@@ -302,7 +310,7 @@ export default function Create() {
                     Deskripsi (optional)
                   </label>
                   <textarea
-                    className="border text-gray-500 w-full rounded p-2 text-sm focus:ring-2 focus:ring-blue-500 transition-all"
+                    className="border text-gray-500 w-full rounded py-2 px-3 focus:border-blue-500 transition-all"
                     onChange={(event) => {
                       setDeskripsi(event.target.value);
                     }}
@@ -373,13 +381,6 @@ export default function Create() {
                   </div>
                 </div>
                 <div>
-                  <button
-                    className="px-4 py-2 tracking-wider mt-10 w-24 text-white font-bold rounded bg-blue-500 hover:bg-blue-700 transition-all"
-                    onClick={handlePostDesign}
-                  >
-                    Create
-                  </button>
-
                   {postRequestFailed ? (
                     <div className="fixed md:max-w-full w-72 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="px-6 py-4 rounded shadow-sm bg-red-500 z-50 ">
@@ -487,7 +488,7 @@ export default function Create() {
                 {loading ? (
                   <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <div className="p-10 rounded shadow-sm bg-blue-500 z-50 ">
-                      <p className="font-semibold text-lg text-white ">
+                      <p className="font-semibold text-lg text-white text-center">
                         Sedang Membuat...
                       </p>
                       <div className="flex justify-center items-center space-x-2 mt-4">
@@ -526,12 +527,10 @@ export default function Create() {
 
             <div
               style={{ height: "684px" }}
-              className={`shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
+              className={`relative shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
            justify-center items-center ${tema[0]}`}
             >
-              {!selectedImage && (
-                <div className="w-28 h-28 rounded-full bg-gray-600"></div>
-              )}
+              {!selectedImage && ""}
               {selectedImage && (
                 <div>
                   <img
@@ -591,6 +590,19 @@ export default function Create() {
                   );
                 })}
               </div>
+              <footer>
+                <a
+                  href="https://linku.netlify.app/"
+                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-white px-4 py-2 shadow-md rounded-full"
+                >
+                  <p className="text-gray-400 text-xs ">
+                    Powered by{" "}
+                    <span className="text-blue-500 outline outline-white">
+                      Linku
+                    </span>
+                  </p>
+                </a>
+              </footer>
             </div>
           </div>
         </div>
