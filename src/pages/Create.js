@@ -206,6 +206,7 @@ export default function Create() {
                       type="text"
                       className="border focus:ring-indigo-500 text-blue-500 focus:border-indigo-500 placeholder-blue-500 block w-full p-2 sm:text-sm border-gray-300 rounded-md"
                       placeholder="yourname"
+                      value={link}
                       onChange={(e) => {
                         setLink(e.target.value);
                       }}
