@@ -1,20 +1,12 @@
 import { faCheckCircle, faRedo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useContext } from "react";
-import { Tema } from "../context/context";
+import { Tema, IndexBorder } from "../context/context";
 
-export default function Themes(props) {
+export default function Themes() {
   const [tema, setTema] = useContext(Tema);
-  const [clickedBorder, setClickedBorder] = useState(props.value);
-  const temass = tema; // console.log(tema);
-  props.func(temass);
-
-  // console.log(clickedBorder);
-
-  // function hanldeChangeTema(number, color) {
-  //   setClickedBorder(number);
-  //   setTema(color);
-  // }
+  const [index, setIndex] = useContext(IndexBorder);
+  const [clickedBorder, setClickedBorder] = useState(index);
 
   return (
     <div>
@@ -22,6 +14,7 @@ export default function Themes(props) {
         <h1 className="text-2xl text-gray-500">Tema</h1>
         <button
           onClick={() => {
+            setIndex(0);
             setClickedBorder(0);
             setTema("bg-gray-200");
           }}
@@ -39,6 +32,7 @@ export default function Themes(props) {
               clickedBorder === 1 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(1);
               setClickedBorder(1);
               setTema(e.target.value);
             }}
@@ -61,6 +55,7 @@ export default function Themes(props) {
               clickedBorder === 2 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(2);
               setClickedBorder(2);
               setTema(e.target.value);
             }}
@@ -83,6 +78,7 @@ export default function Themes(props) {
               clickedBorder === 3 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(3);
               setClickedBorder(3);
               setTema(e.target.value);
             }}
@@ -105,6 +101,7 @@ export default function Themes(props) {
               clickedBorder === 4 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(4);
               setClickedBorder(4);
               setTema(e.target.value);
             }}
@@ -127,6 +124,7 @@ export default function Themes(props) {
               clickedBorder === 5 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(5);
               setClickedBorder(5);
               setTema(e.target.value);
             }}
@@ -149,6 +147,7 @@ export default function Themes(props) {
               clickedBorder === 6 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(6);
               setClickedBorder(6);
               setTema(e.target.value);
             }}
@@ -171,6 +170,7 @@ export default function Themes(props) {
               clickedBorder === 7 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(7);
               setClickedBorder(7);
               setTema(e.target.value);
             }}
@@ -193,6 +193,7 @@ export default function Themes(props) {
               clickedBorder === 8 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(8);
               setClickedBorder(8);
               setTema(e.target.value);
             }}
@@ -215,6 +216,7 @@ export default function Themes(props) {
               clickedBorder === 9 ? "border-4 border-blue-500" : ""
             } rounded`}
             onClick={(e) => {
+              setIndex(9);
               setClickedBorder(9);
               setTema(e.target.value);
             }}
