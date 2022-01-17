@@ -206,7 +206,7 @@ export default function Create() {
                   <div className="mt-1 rounded-md">
                     <input
                       type="text"
-                      className="border focus:border-blue-500 text-blue-500 placeholder-blue-500 block w-full py-2 px-3 text-base border-gray-300 rounded-md transition-all"
+                      className="border focus:ring-2 focus:ring-blue-500 text-blue-500 placeholder-blue-500 block w-full py-2 px-3 text-base border-gray-300 rounded-md transition-all"
                       placeholder="yourname"
                       value={link}
                       onChange={(e) => {
@@ -310,7 +310,7 @@ export default function Create() {
                     Deskripsi (optional)
                   </label>
                   <textarea
-                    className="border text-gray-500 w-full rounded py-2 px-3 focus:border-blue-500 transition-all"
+                    className="border text-gray-500 w-full rounded py-2 px-3 focus:ring-2 focus:border-blue-500 transition-all"
                     onChange={(event) => {
                       setDeskripsi(event.target.value);
                     }}
