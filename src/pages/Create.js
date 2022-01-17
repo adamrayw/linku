@@ -150,7 +150,7 @@ export default function Create() {
     <>
       <Navbar />
       <section className="py-10">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center md:px-0 px-4">
           <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 px-0">
             Desain Halaman
           </h1>
