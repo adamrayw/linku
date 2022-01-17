@@ -33,7 +33,8 @@ export default function Create() {
 
   const context = useContext(Context);
   const tema = useContext(Tema);
-  console.log(tema[0]);
+  const getTema = tema[0];
+
   useEffect(() => {
     document.title = "Create";
   }, []);
@@ -129,7 +130,7 @@ export default function Create() {
     formData.append("deskripsi_font_style", deskripsiStyleItalic);
     formData.append("deskripsi_font_size", deskripsiFontSize);
     formData.append("data_link", JSON.stringify(context[0]));
-    formData.append("tema", tema[0]);
+    formData.append("tema", getTema);
 
     const requestOptions = {
       method: "POST",
