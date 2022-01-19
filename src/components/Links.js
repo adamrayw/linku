@@ -132,7 +132,7 @@ export default function Links() {
           <div className="space-y-2 md:w-64 w-full">
             <div>
               <input
-                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:border-blue-500 placeholder-gray-500 transition-all"
+                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:ring-2 focus:border-blue-500 placeholder-gray-500 transition-all"
                 type="text"
                 placeholder="ex: Twitter"
                 value={nama}
@@ -144,7 +144,7 @@ export default function Links() {
             </div>
             <div>
               <input
-                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:border-blue-500 placeholder-gray-500 transition-all"
+                className="border md:w-auto w-full text-gray-600 text-base rounded py-2 px-3 focus:ring-2 focus:border-blue-500 placeholder-gray-500 transition-all"
                 type="text"
                 placeholder="https://twitter.com"
                 value={link}
