@@ -51,6 +51,19 @@ export default function FinalLink() {
                 } `}
               >
                 <div key={item.id}>
+                  <div className="text-center">
+                    <a
+                      href="https://linku.netlify.app/"
+                      className="inline-block bg-white px-4 py-2 my-6 shadow-md rounded-full"
+                    >
+                      <p className="text-gray-400 text-xs ">
+                        Powered by{" "}
+                        <span className="text-blue-500 outline outline-white">
+                          Linku
+                        </span>
+                      </p>
+                    </a>
+                  </div>
                   <div className="w-28 h-28 rounded-full mx-auto">
                     <img
                       className="rounded-full bg-cover bg-center"
@@ -105,19 +118,6 @@ export default function FinalLink() {
                     </div>
                   </div>
                 </div>
-                <footer className="text-center">
-                  <a
-                    href="https://linku.netlify.app/"
-                    className="inline-block bg-white px-4 py-2 mt-14 shadow-md rounded-full"
-                  >
-                    <p className="text-gray-400 text-xs ">
-                      Powered by{" "}
-                      <span className="text-blue-500 outline outline-white">
-                        Linku
-                      </span>
-                    </p>
-                  </a>
-                </footer>
               </div>
             );
           })}
