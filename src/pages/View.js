@@ -46,7 +46,7 @@ export default function FinalLink() {
             const link = JSON.parse(item.data_link);
             return (
               <div
-                className={`max-w-7xl px-6 mx-auto h-screen flex flex-col justify-center items-center ${
+                className={`max-w-7xl px-6 py-10 mx-auto h-screen flex flex-col justify-center items-center ${
                   item.tema ? item.tema : "bg-gray-200"
                 } `}
               >
@@ -105,7 +105,7 @@ export default function FinalLink() {
                     </div>
                   </div>
                 </div>
-                <footer>
+                <footer className="text-center">
                   <a
                     href="https://linku.netlify.app/"
                     className="inline-block bg-white px-4 py-2 mt-14 shadow-md rounded-full"
