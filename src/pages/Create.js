@@ -307,7 +307,7 @@ export default function Create() {
                 </div>
                 <div>
                   <label className="block text-sm mb-1 mt-4  text-gray-400">
-                    Deskripsi (optional)
+                    Bio
                   </label>
                   <textarea
                     className="border text-gray-500 w-full rounded py-2 px-3 focus:ring-2 focus:border-blue-500 transition-all"
