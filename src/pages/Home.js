@@ -11,9 +11,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
-  React.useEffect(() => {
-    document.title = "Linku - Make your business more professional ";
-  });
   return (
     <>
       <Navbar />
