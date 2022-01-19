@@ -527,14 +527,12 @@ export default function Create() {
 
             <div
               style={{ height: "684px" }}
-              className={`relative shadow px-6 md:w-96 w-full overflow-y-scroll flex flex-col
-           justify-center items-center ${tema[0]}`}
+              className={`shadow px-6 py-10 md:w-96 w-full overflow-y-scroll mx-auto ${tema[0]}`}
             >
-              {!selectedImage && ""}
               {selectedImage && (
-                <div>
+                <div className="mt-32">
                   <img
-                    className="rounded-full w-32 h-32 bg-cover bg-center"
+                    className="rounded-full w-32 h-32 mx-auto bg-cover bg-center"
                     src={URL.createObjectURL(selectedImage)}
                     alt=""
                   />
@@ -574,7 +572,7 @@ export default function Create() {
                           style={{
                             backgroundColor: e.bgColor,
                           }}
-                          className="p-4 rounded-lg w-64"
+                          className="p-4 rounded-lg w-64 mx-auto"
                         >
                           <p
                             style={{
@@ -590,10 +588,10 @@ export default function Create() {
                   );
                 })}
               </div>
-              <footer>
+              <footer className=" text-center">
                 <a
                   href="https://linku.netlify.app/"
-                  className="absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2  bg-white px-4 py-2 shadow-md rounded-full"
+                  className="inline-block bg-white px-4 py-2 mt-14 shadow-md rounded-full"
                 >
                   <p className="text-gray-400 text-xs ">
                     Powered by{" "}
