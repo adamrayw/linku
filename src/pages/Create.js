@@ -23,7 +23,7 @@ export default function Create() {
   const [namaBisnisFontSize, setNamaBisnisFontSize] = useState("");
   const [postRequestFailed, setPostRequestFailed] = useState(false);
   const [postRequestSucces, setPostRequestSucces] = useState(false);
-  const [loading, setLoading] = useState();
+  const [loading, setLoading] = useState(false);
 
   const context = useContext(Context);
   const tema = useContext(Tema);
@@ -150,18 +150,11 @@ export default function Create() {
     <>
       <Navbar />
       <section className="py-10">
-        <div className="flex justify-between items-center md:px-0 px-4">
-          <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 px-0">
-            Desain Halaman
-          </h1>
-          <button
-            className="px-4 py-2 tracking-wider w-24 text-white font-bold rounded bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-indigo-500 hover:to-sky-500 transition-colors"
-            onClick={handlePostDesign}
-          >
-            Create
-          </button>
-        </div>
-        <div className="mt-6">
+        <h1 className="text-2xl md:text-left text-center font-medium text-gray-500 px-0">
+          Desain Halaman
+        </h1>
+
+        <div className="mt-6 mb-10">
           <ul className="flex space-x-6 md:justify-start justify-center">
             <li
               className={`transition-all cursor-pointer text-gray-500 pb-2 ${
@@ -378,11 +371,17 @@ export default function Create() {
                       <option value="text-2xl">2x Extra Large</option>
                     </select>
                   </div>
+                  <button
+                    className="mt-10 px-4 py-2 tracking-wider w-24 text-white font-bold rounded bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-indigo-500 hover:to-sky-500 transition-colors"
+                    onClick={handlePostDesign}
+                  >
+                    Create
+                  </button>
                 </div>
                 <div>
                   {postRequestFailed ? (
-                    <div className="fixed md:max-w-full w-72 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="px-6 py-4 rounded shadow-sm bg-red-500 z-50 ">
+                    <div className="fixed w-full h-full bg-opacity-50 bg-black flex justify-center items-center mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <div className="px-6 w-72 mx-6 py-4 rounded shadow-sm bg-red-500 z-50 ">
                         <button
                           onClick={() => {
                             setPostRequestFailed(false);
@@ -419,9 +418,26 @@ export default function Create() {
                         <p className="font-bold mt-2 text-xl text-white text-center">
                           Gagal Membuat
                         </p>
-                        <p className="font-light mt-1 mb-4 text-xs text-white text-center">
-                          Silahkan coba lagi.
+                        <p className="font-light mt-2 mb-4 text-xs text-white text-center">
+                          Pastikan semua field terisi termasuk pada bagian tab
+                          links.
                         </p>
+                      </div>
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  {loading ? (
+                    <div className="fixed w-full h-full bg-opacity-50 z-auto bg-black flex justify-center items-center mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <div className="p-10 rounded shadow-sm bg-blue-500 z-50 ">
+                        <p className="font-semibold text-lg text-white text-center">
+                          Sedang Membuat...
+                        </p>
+                        <div className="flex justify-center items-center space-x-2 mt-4">
+                          <div className="animate-bounce w-4 h-4 rounded-full bg-white"></div>
+                          <div className="animate-bounce animation-delay-100 w-4 h-4 rounded-full bg-white"></div>
+                          <div className="animate-bounce animation-delay-200 w-4 h-4 rounded-full bg-white"></div>
+                        </div>
                       </div>
                     </div>
                   ) : (
@@ -484,22 +500,6 @@ export default function Create() {
                     ""
                   )}
                 </div>
-                {loading ? (
-                  <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <div className="p-10 rounded shadow-sm bg-blue-500 z-50 ">
-                      <p className="font-semibold text-lg text-white text-center">
-                        Sedang Membuat...
-                      </p>
-                      <div className="flex justify-center items-center space-x-2 mt-4">
-                        <div className="animate-bounce w-4 h-4 rounded-full bg-white"></div>
-                        <div className="animate-bounce animation-delay-100 w-4 h-4 rounded-full bg-white"></div>
-                        <div className="animate-bounce animation-delay-200 w-4 h-4 rounded-full bg-white"></div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )}
               </section>
             ) : (
               ""
