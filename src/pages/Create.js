@@ -6,7 +6,7 @@ import Themes from "../components/Themes";
 import { Context, Tema } from "../context/context";
 
 export default function Create() {
-  const [link, setLink] = React.useState();
+  const [link, setLink] = React.useState("");
   const [namaBisnis, setNamaBisnis] = React.useState("");
   const [namaBisnisStyleBold, setNamaBisnisStyleBold] = useState("");
   const [namaBisnisStyleItalic, setNamaBisnisStyleItalic] = useState("");
@@ -214,8 +214,7 @@ export default function Create() {
                       }}
                     />
                     <div className="mt-1 text-xs font-light text-gray-400">
-                      https://linku.netlify.app/
-                      <span className="text-blue-500">yourname</span>
+                      Gunakan huruf kecil dan tanpa spasi.
                     </div>
                   </div>
                 </div>
