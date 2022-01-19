@@ -31,7 +31,7 @@ export default function Create() {
 
   useEffect(() => {
     document.title = "Create";
-  }, []);
+  });
 
   function handleNamaBisnisColorPicker() {
     setNamaBisnisColorPicker(!namaBisnisColorPicker);
