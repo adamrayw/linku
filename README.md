@@ -11,7 +11,7 @@ Linku membantu anda untuk membuat beberapa link menjadi satu halaman, contoh and
 ## Teknologi yang digunakan
 
 - React
-- Laravel sebagai backend
+- Laravel untuk API
 - Tailwind
 - Fontawesome untuk font
 - Cloudinary untuk cloud gambar
