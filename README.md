@@ -5,7 +5,7 @@ Linku membantu anda untuk membuat beberapa link menjadi satu halaman, contoh and
 ## Fitur
 
 - Gunakan nama anda sebagai link.
-- Buat link atau halman tak terbatas.
+- Buat link atau halaman tak terbatas.
 - Fully customizable, mulai dari text, link, dan tema.
 
 ## Teknologi yang digunakan
@@ -13,4 +13,5 @@ Linku membantu anda untuk membuat beberapa link menjadi satu halaman, contoh and
 - React
 - Laravel sebagai backend
 - Tailwind
-- Fontawesom untuk font
+- Fontawesome untuk font
+- Cloudinary untuk cloud gambar
