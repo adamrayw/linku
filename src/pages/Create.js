@@ -444,8 +444,8 @@ export default function Create() {
                     ""
                   )}
                   {postRequestSucces ? (
-                    <div className="fixed md:max-w-full w-72 mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                      <div className="px-6 py-4 rounded shadow-sm bg-gray-50 z-50 ">
+                    <div className="fixed w-full h-full bg-opacity-50 bg-black flex justify-center items-center mx-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                      <div className="px-6  mx-6 py-4 rounded shadow-sm bg-gray-50 z-50 ">
                         <button
                           onClick={() => {
                             setPostRequestSucces(false);
@@ -453,7 +453,7 @@ export default function Create() {
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            className="absolute right-0 text-blue-500 top-0 m-2 h-4 w-4 ml-auto"
+                            className="absolute right-0 text-white top-0 m-2 h-4 w-4 ml-auto"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
