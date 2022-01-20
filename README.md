@@ -18,4 +18,4 @@ Linku membantu anda untuk membuat beberapa link menjadi satu halaman, contoh and
 
 ## Contoh
 
-[Link Profile](http://linku.netlify.app/)
+[Link Profile](http://linku.netlify.app/adamrwib)
