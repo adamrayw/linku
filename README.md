@@ -15,3 +15,7 @@ Linku membantu anda untuk membuat beberapa link menjadi satu halaman, contoh and
 - Tailwind
 - Fontawesome untuk font
 - Cloudinary untuk cloud gambar
+
+## Contoh
+
+[Link Profile](http://linku.netlify.app/)
