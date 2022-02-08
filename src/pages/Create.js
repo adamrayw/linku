@@ -244,14 +244,14 @@ export default function Create() {
                       onClick={handleNamaBisnisColorPicker}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: namaBisnisColor }}
-                    ></div>
+                     />
                     <div className="absolute z-30 transition-all">
                       {namaBisnisColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleNamaBisnisColorPickerClose}
-                          ></div>
+                           />
                           <SketchPicker
                             color={namaBisnisColor}
                             onChange={(event) => {
@@ -307,21 +307,21 @@ export default function Create() {
                       setDeskripsi(event.target.value);
                     }}
                     value={deskripsi}
-                  ></textarea>
+                   />
 
                   <div className="flex items-center mt-2 space-x-2">
                     <div
                       onClick={handleDeskripsiColorPicker}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: deskripsiColor }}
-                    ></div>
+                     />
                     <div className="absolute z-30 transition-all">
                       {deskripsiColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleDeskripsiColorPickerClose}
-                          ></div>
+                           />
                           <SketchPicker
                             color={deskripsiColor}
                             onChange={(event) => {
@@ -434,9 +434,9 @@ export default function Create() {
                           Sedang Membuat...
                         </p>
                         <div className="flex justify-center items-center space-x-2 mt-4">
-                          <div className="animate-bounce w-4 h-4 rounded-full bg-white"></div>
-                          <div className="animate-bounce animation-delay-100 w-4 h-4 rounded-full bg-white"></div>
-                          <div className="animate-bounce animation-delay-200 w-4 h-4 rounded-full bg-white"></div>
+                          <div className="animate-bounce w-4 h-4 rounded-full bg-white" />
+                          <div className="animate-bounce animation-delay-100 w-4 h-4 rounded-full bg-white" />
+                          <div className="animate-bounce animation-delay-200 w-4 h-4 rounded-full bg-white" />
                         </div>
                       </div>
                     </div>

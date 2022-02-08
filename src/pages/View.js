@@ -31,12 +31,12 @@ export default function FinalLink() {
           <div className="w-28 h-28 rounded-full animate-pulse bg-gray-600">
             <img className="rounded-full bg-cover bg-center" src="" alt="" />
           </div>
-          <div className="mt-8 rounded-full animate-pulse h-4 w-44 bg-gray-600"></div>
+          <div className="mt-8 rounded-full animate-pulse h-4 w-44 bg-gray-600" />
           <div className="mt-6">
-            <div className="mt-6 rounded-full animate-pulse h-4 w-64 bg-gray-600"></div>
+            <div className="mt-6 rounded-full animate-pulse h-4 w-64 bg-gray-600" />
             <div className="flex items-center">
-              <div className="mt-6 rounded-full animate-pulse h-4 w-44 mr-2 bg-gray-600"></div>
-              <div className="mt-6 rounded-full animate-pulse h-4 w-20 bg-gray-600"></div>
+              <div className="mt-6 rounded-full animate-pulse h-4 w-44 mr-2 bg-gray-600" />
+              <div className="mt-6 rounded-full animate-pulse h-4 w-20 bg-gray-600" />
             </div>
           </div>
         </div>
