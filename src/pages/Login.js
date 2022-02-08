@@ -8,7 +8,7 @@ export default function Login() {
       <form>
         <div>
           <div className="mb-4">
-            <label for="username">Username</label>
+            <label htmlFor="username">Username</label>
             <div>
               <input
                 type="text"
@@ -20,7 +20,7 @@ export default function Login() {
             </div>
           </div>
           <div>
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <div>
               <input
                 type="password"
