@@ -1,13 +1,12 @@
 import { faCheckCircle, faRedo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Tema, IndexBorder } from "../context/context";
 
 export default function Themes() {
   const [tema, setTema] = useContext(Tema);
   const [index, setIndex] = useContext(IndexBorder);
   const [clickedBorder, setClickedBorder] = useState(index);
-  
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Context, IndexBorder, Tema } from "./context/context";
 import Create from "./pages/Create";
 import Home from "./pages/Home";
