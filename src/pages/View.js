@@ -49,8 +49,9 @@ export default function FinalLink() {
                 className={`max-w-7xl px-6 py-10 mx-auto ${
                   item.tema ? item.tema : "bg-gray-200"
                 } `}
+                key={item.id}
               >
-                <div key={item.id}>
+                <div>
                   <div className="w-28 h-28 rounded-full mx-auto">
                     <img
                       className="rounded-full bg-cover bg-center"

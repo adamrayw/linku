@@ -66,7 +66,6 @@ export default function Links() {
       setTextColor("");
       setLink("");
 
-      
       return;
     }
 
@@ -81,7 +80,6 @@ export default function Links() {
       },
     ]);
 
-    
     setNama("");
     setLink("");
   }
@@ -166,14 +164,14 @@ export default function Links() {
                       onClick={handleBgColorPickerClose}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: bgcolor }}
-                     />
+                    />
                     <div className="absolute z-30 transition-all">
                       {bgColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleBgColorPickerClose}
-                           />
+                          />
                           <SketchPicker
                             color={bgcolor}
                             onChange={(event) => {
@@ -192,14 +190,14 @@ export default function Links() {
                       onClick={handleTextColorPickerClose}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: textcolor }}
-                     />
+                    />
                     <div className="absolute z-30 transition-all">
                       {textColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleTextColorPickerClose}
-                           />
+                          />
                           <SketchPicker
                             color={textcolor}
                             onChange={(event) => {
@@ -255,8 +253,8 @@ export default function Links() {
           <div className="space-y-4">
             {context.map((item) => {
               return (
-                <div className="flex flex-col items-start">
-                  <div className="flex items-center w-full" key={item.id}>
+                <div className="flex flex-col items-start" key={item.id}>
+                  <div className="flex items-center w-full">
                     <div className="md:w-64 w-full rounded-md bg-gradient-to-r from-sky-500 to-indigo-500 text-white p-2 px-3 shadow-sm flex justify-between items-center">
                       {item.nama}
                     </div>
