@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Login() {
   return (
     <section className=" max-w-sm md:mx-auto my-14 mx-4 bg-white shadow-md rounded-lg p-10">
