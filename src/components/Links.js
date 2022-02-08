@@ -66,7 +66,7 @@ export default function Links() {
       setTextColor("");
       setLink("");
 
-      console.log(context);
+      
       return;
     }
 
@@ -81,7 +81,7 @@ export default function Links() {
       },
     ]);
 
-    console.log(context);
+    
     setNama("");
     setLink("");
   }
