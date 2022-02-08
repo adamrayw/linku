@@ -166,14 +166,14 @@ export default function Links() {
                       onClick={handleBgColorPickerClose}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: bgcolor }}
-                    ></div>
+                     />
                     <div className="absolute z-30 transition-all">
                       {bgColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleBgColorPickerClose}
-                          ></div>
+                           />
                           <SketchPicker
                             color={bgcolor}
                             onChange={(event) => {
@@ -192,14 +192,14 @@ export default function Links() {
                       onClick={handleTextColorPickerClose}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: textcolor }}
-                    ></div>
+                     />
                     <div className="absolute z-30 transition-all">
                       {textColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleTextColorPickerClose}
-                          ></div>
+                           />
                           <SketchPicker
                             color={textcolor}
                             onChange={(event) => {
