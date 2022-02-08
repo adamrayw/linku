@@ -34,9 +34,6 @@ export default function Modal() {
                           name="bisnisName"
                           className="border-b border-gray-300 focus:border-b focus:border-blue-500"
                           placeholder=""
-                          onChange={(event) => {
-                            setNamaBiss(event.target.value);
-                          }}
                         />
                       </div>
                     </form>
