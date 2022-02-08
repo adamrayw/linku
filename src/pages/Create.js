@@ -136,7 +136,7 @@ export default function Create() {
     );
 
     if (!response.ok) {
-      console.log("Something error");
+      
       setPostRequestFailed(true);
       setLoading(false);
     } else {

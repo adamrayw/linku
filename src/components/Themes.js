@@ -7,7 +7,7 @@ export default function Themes() {
   const [tema, setTema] = useContext(Tema);
   const [index, setIndex] = useContext(IndexBorder);
   const [clickedBorder, setClickedBorder] = useState(index);
-  console.log(tema);
+  
 
   return (
     <div>
