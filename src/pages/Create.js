@@ -136,7 +136,6 @@ export default function Create() {
     );
 
     if (!response.ok) {
-      
       setPostRequestFailed(true);
       setLoading(false);
     } else {
@@ -244,14 +243,14 @@ export default function Create() {
                       onClick={handleNamaBisnisColorPicker}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: namaBisnisColor }}
-                     />
+                    />
                     <div className="absolute z-30 transition-all">
                       {namaBisnisColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleNamaBisnisColorPickerClose}
-                           />
+                          />
                           <SketchPicker
                             color={namaBisnisColor}
                             onChange={(event) => {
@@ -307,21 +306,21 @@ export default function Create() {
                       setDeskripsi(event.target.value);
                     }}
                     value={deskripsi}
-                   />
+                  />
 
                   <div className="flex items-center mt-2 space-x-2">
                     <div
                       onClick={handleDeskripsiColorPicker}
                       className="px-4 py-1 rounded w-10 h-6 border border-gray-400 hover:cursor-pointer"
                       style={{ backgroundColor: deskripsiColor }}
-                     />
+                    />
                     <div className="absolute z-30 transition-all">
                       {deskripsiColorPicker ? (
                         <div>
                           <div
                             className="top-0 right-0 bottom-0 left-0 fixed"
                             onClick={handleDeskripsiColorPickerClose}
-                           />
+                          />
                           <SketchPicker
                             color={deskripsiColor}
                             onChange={(event) => {
@@ -449,6 +448,7 @@ export default function Create() {
                         <button
                           onClick={() => {
                             setPostRequestSucces(false);
+                            window.location.href = "https://linku.netlify.app/";
                           }}
                         >
                           <svg
