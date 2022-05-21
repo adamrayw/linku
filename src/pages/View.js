@@ -46,7 +46,7 @@ export default function FinalLink() {
             const link = JSON.parse(item.data_link);
             return (
               <div
-                className={`max-w-7xl px-6 py-10 mx-auto ${
+                className={`max-w-7xl h-screen px-6 py-10 mx-auto ${
                   item.tema ? item.tema : "bg-gray-200"
                 } `}
                 key={item.id}
