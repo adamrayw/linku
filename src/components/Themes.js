@@ -4,6 +4,7 @@ import React, { useState, useContext } from "react";
 import { Tema, IndexBorder } from "../context/context";
 
 export default function Themes() {
+  // eslint-disable-next-line no-unused-vars
   const [tema, setTema] = useContext(Tema);
   const [index, setIndex] = useContext(IndexBorder);
   const [clickedBorder, setClickedBorder] = useState(index);
